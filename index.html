@@ -1,1 +1,558 @@
-"Home" 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- SEO Meta Tags (Customize further) -->
+    <title>Avinash Jha - Vision for Bihar Rebirth & Development Roadmap</title>
+    <meta name="description" content="Official website of Avinash Ranjan Jha. Discover his vision, the comprehensive 'Bihar Rebirth Roadmap,' the Mithila Samriddhi Panchasutri plan, and solutions for Bihar's challenges like floods, migration, and unemployment. #NewBihar #BiharRevival">
+    <meta name="keywords" content="Avinash Jha, Bihar Development, Bihar Roadmap, Mithila Samriddhi Panchasutri, Adbhut Samriddhi Canal, Flood Control, Unemployment Solution, Migration Control, Bihar SEZ, IT City Bihar, Janaki Circuit, Mithila, Bihar Revival, Sustainable Development, Good Governance, Invest In Bihar">
+    <meta name="author" content="Avinash Ranjan Jha">
+
+    <!-- Favicon (Optional) -->
+    <!-- <link rel="icon" href="/favicon.ico" type="image/x-icon"> -->
+
+    <style>
+        /* Basic Reset & Body Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 100%; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Variables */
+        :root {
+            --brand-color: #007bff;
+            --brand-color-dark: #0056b3;
+            --text-color: #333;
+            --grey-color: #777;
+            --grey-color-light: #e0e0e0;
+            --grey-color-dark: #333;
+            --background-color: #f9f9f9;
+            --white-color: #fff;
+            --content-width: 900px;
+            --spacing-unit: 30px;
+            --header-height: 65px; /* Adjusted for slightly taller header */
+        }
+
+        /* Container */
+        .wrapper {
+            max-width: var(--content-width);
+            margin: 0 auto;
+            padding: 0 calc(var(--spacing-unit) / 2);
+        }
+        @media (min-width: 800px) {
+            .wrapper { padding: 0 var(--spacing-unit); }
+        }
+
+        /* Header & Navigation */
+        .site-header {
+            background-color: var(--white-color);
+            border-bottom: 1px solid var(--grey-color-light);
+            position: sticky; /* Make header sticky */
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .site-header .wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: var(--header-height);
+        }
+        .site-title {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: var(--grey-color-dark);
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+        .site-title:hover { color: var(--brand-color); }
+
+        .site-nav .nav-trigger { display: none; }
+        .site-nav .menu-icon { display: none; cursor: pointer; }
+        .site-nav .page-link {
+            color: var(--grey-color-dark);
+            text-decoration: none;
+            padding: 5px 10px;
+            margin-left: 15px;
+            border-radius: 4px;
+            transition: color 0.2s ease-in-out;
+        }
+        .site-nav .page-link:hover { color: var(--brand-color); text-decoration: underline; }
+
+        /* Mobile Navigation */
+        @media (max-width: 700px) {
+            .site-nav {
+                position: relative; /* Changed from absolute */
+            }
+            .site-nav .menu-icon {
+                display: block;
+                padding: 10px; /* Make it easier to tap */
+            }
+            .site-nav .menu-icon svg { width: 24px; height: 21px; } /* Slightly larger icon */
+            .site-nav .menu-icon svg path { fill: var(--grey-color-dark); }
+
+            .site-nav .trigger {
+                display: none; /* Hidden by default */
+                position: absolute;
+                top: calc(100% + 5px); /* Position below header */
+                right: 0;
+                background-color: var(--white-color);
+                border: 1px solid var(--grey-color-light);
+                border-radius: 5px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+                width: 180px; /* Set a width */
+                text-align: left;
+                padding: 5px 0;
+            }
+            .site-nav .nav-trigger:checked ~ .trigger {
+                display: block; /* Show when checked */
+            }
+            .site-nav .page-link {
+                display: block;
+                padding: 10px 20px;
+                margin: 0;
+                border-bottom: 1px solid var(--grey-color-light);
+            }
+            .site-nav .page-link:last-child { border-bottom: none; }
+            .site-nav .page-link:hover { background-color: var(--brand-color); color: var(--white-color); text-decoration: none; }
+        }
+
+        /* Main Content Area */
+        main.page-content {
+            padding: var(--spacing-unit) 0;
+            flex: 1;
+        }
+
+        /* Section Styling */
+        section {
+            padding: calc(var(--spacing-unit) * 1.5) 0;
+            border-bottom: 1px solid var(--grey-color-light);
+        }
+        section:last-of-type { border-bottom: none; }
+        section h2 {
+            font-size: 2rem;
+            color: var(--brand-color);
+            margin-bottom: var(--spacing-unit);
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--brand-color);
+            display: inline-block;
+        }
+        section h3 {
+            font-size: 1.5rem;
+            color: var(--grey-color-dark);
+            margin-top: var(--spacing-unit);
+            margin-bottom: calc(var(--spacing-unit) / 2);
+        }
+        section p, section ul, section ol { margin-bottom: calc(var(--spacing-unit) / 1.5); }
+        section ul, section ol { padding-left: var(--spacing-unit); }
+        section li > ul, section li > ol { margin-bottom: 0; }
+        section img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: var(--spacing-unit) auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+         section a { color: var(--brand-color); text-decoration: none; }
+         section a:hover { color: var(--brand-color-dark); text-decoration: underline; }
+         blockquote {
+            color: var(--grey-color);
+            border-left: 4px solid var(--grey-color-light);
+            padding-left: calc(var(--spacing-unit) / 2);
+            font-size: 1.1rem;
+            font-style: italic;
+            margin: var(--spacing-unit) 0;
+         }
+
+        /* Specific Section Styles (e.g., Home Banner) */
+        #home {
+            background-color: var(--white-color); /* White background for banner */
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 2) 0;
+        }
+        #home h1 {
+            font-size: 2.5rem;
+            color: var(--grey-color-dark);
+            margin-bottom: 15px;
+        }
+        #home .subtitle {
+            font-size: 1.2rem;
+            color: var(--grey-color);
+            margin-bottom: var(--spacing-unit);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #home .cta-button {
+            display: inline-block;
+            background-color: var(--brand-color);
+            color: var(--white-color);
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        #home .cta-button:hover { background-color: var(--brand-color-dark); }
+
+
+        /* About Section Specifics */
+        #about .profile-pic {
+            max-width: 200px; /* Adjust size */
+            border-radius: 50%; /* Make it circular */
+            float: left;
+            margin-right: var(--spacing-unit);
+            margin-bottom: 10px;
+        }
+         @media (max-width: 600px) {
+            #about .profile-pic {
+                float: none;
+                display: block;
+                margin: 0 auto var(--spacing-unit);
+            }
+         }
+
+        /* Book Section Specifics */
+        #book .book-cover {
+             max-width: 250px; /* Adjust size */
+             float: right;
+             margin-left: var(--spacing-unit);
+             margin-bottom: 10px;
+        }
+         @media (max-width: 600px) {
+             #book .book-cover {
+                 float: none;
+                 display: block;
+                 margin: var(--spacing-unit) auto;
+             }
+         }
+         #book ul li { margin-bottom: 10px;}
+
+
+        /* Vision/Roadmap Section Specifics */
+        #vision ul { list-style: disc; }
+        #vision ol { list-style: decimal; }
+        #vision ul ul, #vision ol ol { list-style-type: circle; margin-top: 5px; }
+        #vision ol ul, #vision ul ol { list-style-type: lower-alpha; margin-top: 5px; }
+
+        /* Contact Form */
+        .contact-form {
+            margin-top: var(--spacing-unit);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: var(--white-color);
+            padding: var(--spacing-unit);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--grey-color-dark);
+        }
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: var(--spacing-unit);
+            border: 1px solid var(--grey-color-light);
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+        }
+         .contact-form input[type="text"]:focus,
+         .contact-form input[type="email"]:focus,
+         .contact-form textarea:focus {
+            border-color: var(--brand-color);
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .contact-form button[type="submit"] {
+            background-color: var(--brand-color);
+            color: var(--white-color);
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        .contact-form button[type="submit"]:hover {
+            background-color: var(--brand-color-dark);
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--grey-color-light);
+            padding: var(--spacing-unit) 0;
+            background-color: var(--grey-color-dark); /* Darker footer */
+            color: var(--grey-color-light);
+            font-size: 0.9rem;
+        }
+        .site-footer .wrapper {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            justify-content: space-between;
+            align-items: center; /* Align items vertically */
+        }
+        .site-footer .footer-col { padding: 10px 0; }
+        .site-footer .footer-col-1 { flex-basis: 40%;} /* Adjust basis */
+        .site-footer .footer-col-2 { flex-basis: 30%; text-align: right;} /* Adjust basis and alignment */
+        .site-footer .footer-col-3 { flex-basis: 100%; text-align: center; margin-top: 15px; border-top: 1px solid var(--grey-color); padding-top: 15px; } /* Copyright full width */
+
+        .site-footer a { color: var(--white-color); text-decoration: none; }
+        .site-footer a:hover { text-decoration: underline; }
+        .site-footer ul { list-style: none; padding-left: 0; }
+        .site-footer .contact-list li, .site-footer .social-media-list li { margin-bottom: 5px; }
+        .site-footer .social-media-list { text-align: right; } /* Align social links right */
+        .site-footer .social-media-list li { display: inline-block; margin-left: 15px; } /* Display social links inline */
+        .site-footer .social-media-list a { display: inline-block; }
+        .site-footer .social-media-list .username { display: none; } /* Hide usernames */
+        /* Basic SVG icon styling for footer (Replace with actual icons if needed) */
+        .site-footer .social-media-list svg { width: 20px; height: 20px; vertical-align: middle; fill: var(--white-color);}
+
+        @media (max-width: 700px) {
+            .site-footer .wrapper { flex-direction: column; text-align: center; }
+            .site-footer .footer-col-1, .site-footer .footer-col-2 { flex-basis: 100%; text-align: center; margin-bottom: 10px;}
+            .site-footer .social-media-list { text-align: center; }
+            .site-footer .social-media-list li { margin: 0 10px; }
+        }
+
+        /* Utility */
+        .clearfix::after { content: ""; display: table; clear: both; }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header" role="banner">
+        <div class="wrapper">
+            <a class="site-title" rel="author" href="#home">Avinash Jha - Vision for Bihar Rebirth</a>
+            <nav class="site-nav">
+                <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+                <label for="nav-trigger">
+                    <span class="menu-icon">
+                        <svg viewBox="0 0 18 15" width="18px" height="15px"><path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/></svg>
+                    </span>
+                </label>
+                <div class="trigger">
+                    <a class="page-link" href="#home">Home</a>
+                    <a class="page-link" href="#about">About</a>
+                    <a class="page-link" href="#book">The Book</a>
+                    <a class="page-link" href="#vision">Vision & Roadmap</a>
+                    <a class="page-link" href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="page-content" aria-label="Content">
+
+        <!-- Section 1: Home/Banner -->
+        <section id="home">
+            <div class="wrapper">
+                <h1>Avinash Jha: Vision for Bihar's Rebirth</h1>
+                <p class="subtitle">A New Dawn for Bihar: Development through Data, Technology, and Collective Resolve. Exploring solutions for floods, migration, unemployment, and charting a course towards a prosperous future.</p>
+                <a href="#vision" class="cta-button">Explore the Roadmap</a>
+            </div>
+        </section>
+
+        <!-- Section 2: About -->
+        <section id="about">
+            <div class="wrapper clearfix">
+                <h2>About Avinash Jha</h2>
+                <img src="/assets/images/placeholder.jpg" alt="Avinash Ranjan Jha" class="profile-pic"> <!-- Replace with actual path -->
+                <p>Avinash Ranjan Jha is a dynamic and educated young politician, thinker, and social activist deeply committed to the regeneration of his home state, Bihar, and the broader Ganga-Yamuna region.</p>
+                <h3>Background and Education:</h3>
+                <p>Born in Prayagraj (Allahabad), Uttar Pradesh, and brought up primarily in Bihar, Avinash holds a Post Graduate Diploma in Management (PGDM/MBA) with specializations in HR and Marketing (2001), along with technical certifications like MCSE and CCNA.</p>
+                <h3>Journey into Public Life:</h3>
+                <p>After a successful corporate career (2001-2008), the devastating Kosi flood tragedy in 2008 spurred him to dedicate his life to public service. He founded the **"Bihar Revival Forum"** ([revive-bihar.blogspot.com](https://revive-bihar.blogspot.com/)) to advocate for solutions, notably the "Adbhut Samriddhi Canal" project.</p>
+                <h3>Political Engagements:</h3>
+                <p>With nearly three decades of political involvement (since 1995), Avinash has worked with the Indian National Congress (INC) and the Rashtriya Janata Dal (RJD), holding key state-level positions like State Secretary and General Secretary in the latter. He has extensive grassroots experience, has conducted in-depth socio-political studies, and contributed to national campaigns like the Bharat Jodo Yatra and as an AICC Observer.</p>
+                <h3>Core Philosophy:</h3>
+                <p>His work is driven by the philosophy of **"Development through data and technology-based politics."** He advocates for leveraging modern tools to address Bihar's chronic issues and unlock its potential.</p>
+                <h3>Vision for Bihar:</h3>
+                <p>Avinash envisions a **holistic regeneration** of Bihar – making it self-reliant, progressive, equitable, prosperous, culturally vibrant, and sustainable, focusing on Education, Employment, Infrastructure, Good Governance, and Social Justice.</p>
+                 <p>Beyond politics, he holds an interest in Astrology and Numerology (@astroavinash), adding a philosophical dimension to his pragmatic approach.</p>
+            </div>
+        </section>
+
+        <!-- Section 3: The Book -->
+        <section id="book">
+            <div class="wrapper clearfix">
+                <h2>The Book - Bihar Rebirth: A Roadmap</h2>
+                 <img src="/assets/images/placeholder.jpg" alt="Bihar Rebirth: A Roadmap Book Cover" class="book-cover"> <!-- Replace with actual path -->
+                <p>"Bihar Rebirth: A Roadmap" by Avinash Ranjan Jha is more than an analysis; it's a comprehensive **blueprint for action** for the state's holistic regeneration. It confronts Bihar's harsh realities – floods, migration, unemployment, ailing systems, corruption – and offers bold, integrated, and actionable solutions.</p>
+                <h3>Key Highlights:</h3>
+                 <ul>
+                     <li>**In-depth Analysis:** Data-driven exploration of Bihar's challenges (Parts 1-4).</li>
+                     <li>**Ideological Foundation:** Relevance of Gandhism, Socialism, Lohia-JP's revolutionary spirit (Part 3).</li>
+                     <li>**The Panchasutri Solution (Part 5):** Details the ambitious 5-Point Prosperity Plan:
+                         <ol>
+                             <li>**Adbhut Samriddhi Canal:** For flood control, irrigation, hydropower, navigation.</li>
+                             <li>**Special Economic Zones (SEZs):** In every division for balanced industrial growth and jobs.</li>
+                             <li>**Pag-Pag Pokhar Machh Makhan:** Reviving traditional water bodies for rural prosperity.</li>
+                             <li>**IT City (Hub & Spoke):** A world-class green IT hub plus satellite parks across Bihar.</li>
+                             <li>**Janaki Spiritual Circuit:** Leveraging cultural heritage for tourism.</li>
+                         </ol>
+                     </li>
+                     <li>**Implementation & Future Vision (Part 6 & Supplement):** Focuses on enablers like sustainable energy (Solar Mission), good governance (anti-corruption), digital leapfrogging (digital education, telemedicine), economic diversification (Farm-to-Kitchen, E-commerce, Agri-Exports, Twin Cities), strategic investor outreach, and addressing systemic issues.</li>
+                 </ul>
+                 <p>This book is essential reading for policymakers, the diaspora, investors, students, activists, and anyone invested in Bihar's and India's future. It's a call to action, a blueprint for hope.</p>
+                 <p>*(Note: Add availability/purchase links here)*</p>
+            </div>
+        </section>
+
+        <!-- Section 4: Vision & Roadmap -->
+        <section id="vision">
+            <div class="wrapper">
+                <h2>Vision & Roadmap for Bihar's Rebirth</h2>
+                <p>The vision is for a **holistically regenerated Bihar** – prosperous, equitable, educated, healthy, sustainable, culturally vibrant, well-governed, and globally connected. The roadmap is an integrated strategy combining large-scale projects with systemic reforms and innovative ideas.</p>
+
+                <h3>I. Mithila Samriddhi Panchasutri Pariyojana (5-Point Plan):</h3>
+                <ol>
+                    <li>**Adbhut Samriddhi Canal:** 500 km canal for permanent flood control, irrigation (2-2.5M Ha), 500+ MW hydro, inland navigation (connecting to NW1), groundwater recharge. *Integrates existing infrastructure and uses innovative silt management.*</li>
+                    <li>**Special Economic Zones (SEZs):** In all 9 divisions, focused on regional strengths (agro-processing, textiles, IT), creating millions of local jobs. *PPP model preferred.*</li>
+                    <li>**Pag-Pag Pokhar Machh Makhan:** Reviving/creating thousands of ponds for fisheries (Target: 1.5M+ tonnes), Makhana industry (Target: ₹5000 Cr), water conservation, rural livelihood.</li>
+                    <li>**IT City (Hub & Spoke):** World-class green IT hub (near Patna) + **Satellite IT Parks in every constituency**. Target global IT/IoT market (125M jobs by 2030), position Bihar as 'low-cost' hub (Target: 1-2M professionals), attract NRB talent.</li>
+                    <li>**Janaki Spiritual Circuit:** Developing 11+ sites in Mithila, grand Sita statue, linking with Ramayan circuit, boosting tourism and local arts.</li>
+                </ol>
+
+                <h3>II. Foundational Enablers & Systemic Reforms:</h3>
+                <ul>
+                    <li>**Sustainable Energy & Environment:** Aggressive Solar Mission (10,000 MW+ target - utility, rooftop, canal-top, pumps), renewable diversification (wind, biomass, small hydro), massive Rainwater Harvesting, Afforestation (25%+ target), Pollution Control, Waste Management.</li>
+                    <li>**Good Governance & Anti-Corruption:** E-governance, mandatory digital payments, transparency (dashboards, RTI), strict penalties (special courts, asset forfeiture), protection for honest officials/whistleblowers.</li>
+                    <li>**Digital Leapfrogging (Education & Health):** Modernized universities (IT, GenAI, Open Source, Foreign Languages), state-wide Digital Learning Platform ('Bihar Vidya Vahini') with quality content (Nursery-University) accessible via Smart Classrooms/TVs in all schools, state-wide Telemedicine Network ('Arogya Kendra') with trained staff & remote doctors (incl. NRBs, AI support).</li>
+                    <li>**Economic Diversification & Global Linkages:** 'Farm-to-Kitchen' scheme (logistics, app), E-commerce Empowerment for rural artisans (training, CFCs, global platforms), 'Twin Cities' program with Europe (cultural/experiential tourism), Direct Agri-Exports (fruits/veg to Europe via air cargo), Strategic Investor Outreach (targeted campaigns, personal invites, 24x7 helpline, 'Invest Bihar' agency).</li>
+                    <li>**Addressing Sensitive Issues:** Ensuring Electoral Roll Integrity (data analysis, verification), open dialogue on Regional Aspirations (e.g., Mithila state demand) focusing on balanced development.</li>
+                </ul>
+
+                 <h3>III. Implementation Strategy:</h3>
+                 <ul>
+                     <li>**Bihar Revival Forum/Authority:** An empowered, multi-stakeholder body for coordination and monitoring.</li>
+                     <li>**Political Will & Consensus:** Sustained commitment beyond party lines.</li>
+                     <li>**Efficient Bureaucracy:** Accountable and capable administration.</li>
+                     <li>**Funding:** Mobilizing resources (Central grants/Special Status, State budget, Intl. loans, PPP, Jharkhand dues).</li>
+                     <li>**Jan Bhagidari:** Making regeneration a people's movement.</li>
+                 </ul>
+                 <p>This integrated approach aims to transform Bihar by 2035-2045, leveraging its strengths and tackling its weaknesses head-on.</p>
+            </div>
+        </section>
+
+        <!-- Section 5: Contact -->
+        <section id="contact">
+            <div class="wrapper">
+                <h2>Contact | संपर्क करें</h2>
+                <p>Your thoughts, suggestions, and participation are crucial for Bihar's regeneration. Please use the form below to send your message directly to Avinash Jha.</p>
+                <p>*बिहार के पुनर्जनन के लिए आपके विचार, सुझाव और भागीदारी महत्वपूर्ण हैं। कृपया अपना संदेश सीधे अविनाश झा तक भेजने के लिए नीचे दिए गए फॉर्म का उपयोग करें।*</p>
+
+                <form action="https://formsubmit.co/avinashrjhaa@gmail.com" method="POST" class="contact-form">
+                    <label for="name">Name (नाम):</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email (ईमेल):</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="subject">Subject (विषय):</label>
+                    <input type="text" id="subject" name="subject" required>
+
+                    <label for="message">Message (संदेश):</label>
+                    <textarea id="message" name="message" required></textarea>
+
+                    <input type="text" name="_honey" style="display:none">
+                    <input type="hidden" name="_captcha" value="false">
+                    <!-- <input type="hidden" name="_next" value="https://avinashjha.in/thankyou.html"> -->
+
+                    <button type="submit">Send Message (संदेश भेजें)</button>
+                </form>
+
+                <hr style="margin: var(--spacing-unit) 0;">
+
+                <h3>Connect on Social Media | सोशल मीडिया पर जुड़ें:</h3>
+                 <p style="text-align: center;">
+                    <a href="https://twitter.com/astroavinash" target="_blank" style="margin: 0 10px;">Twitter (@astroavinash)</a> |
+                    <a href="https://www.facebook.com/avynashjha/" target="_blank" style="margin: 0 10px;">Facebook (Avynash Jha)</a> |
+                    <a href="https://revive-bihar.blogspot.com/" target="_blank" style="margin: 0 10px;">Revive Bihar Blog</a>
+                </p>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="wrapper">
+            <div class="footer-col footer-col-1">
+                 <ul class="contact-list">
+                    <li>Avinash Jha</li>
+                    <li><a href="mailto:avinashrjhaa@gmail.com">avinashrjhaa@gmail.com</a></li>
+                 </ul>
+            </div>
+            <div class="footer-col footer-col-2">
+                <ul class="social-media-list">
+                    <li><a href="https://twitter.com/astroavinash" target="_blank" title="Twitter"><svg class="svg-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M22.46,6C21.7,6.3,20.9,6.5,20.08,6.6C20.94,6.1,21.6,5.3,21.94,4.3C21.14,4.8,20.28,5.1,19.38,5.3C18.64,4.5,17.5,4,16.24,4C13.86,4,11.94,5.9,11.94,8.3C11.94,8.6,11.98,8.9,12.04,9.2C8.48,9,5.4,7.5,3.34,5.1C2.98,5.7,2.78,6.4,2.78,7.2C2.78,8.8,3.64,10.2,4.98,11C4.3,10.9,3.68,10.8,3.14,10.5C3.14,10.5,3.14,10.5,3.14,10.6C3.14,12.7,4.58,14.5,6.62,14.9C6.28,15,5.9,15.1,5.5,15.1C5.22,15.1,4.94,15.1,4.68,15C5.26,16.8,6.98,18.1,9.08,18.1C7.64,19.2,5.78,19.9,3.76,19.9C3.44,19.9,3.1,19.9,2.78,19.8C4.9,21.1,7.4,21.9,10.14,21.9C16.24,21.9,20.38,16.9,20.38,12.5C20.38,12.3,20.38,12.1,20.36,11.9C21.02,11.4,21.8,10.8,22.46,10.1 M16.24,5C17.3,5,18.24,5.4,18.94,6C18.34,5.9,17.74,5.7,17.08,5.4C17.74,4.8,18.4,4.1,18.76,3.3C18.04,3.7,17.24,4.1,16.38,4.3C15.7,3.6,14.7,3.1,13.54,3.1C11.6,3.1,10.04,4.7,10.04,6.7C10.04,7,10.08,7.3,10.14,7.6C6.84,7.4,3.98,5.9,2.08,3.6C1.7,4.2,1.5,4.9,1.5,5.6C1.5,6.9,2.22,8.1,3.38,8.8C2.78,8.7,2.22,8.5,1.74,8.2C1.74,8.2,1.74,8.3,1.74,8.4C1.74,10.2,3.04,11.7,4.84,12C4.5,12.1,4.16,12.1,3.8,12.1C3.56,12.1,3.3,12.1,3.06,12C3.56,13.5,5.08,14.6,6.94,14.6C5.64,15.6,3.98,16.2,2.14,16.2C1.84,16.2,1.54,16.2,1.24,16.1C3.1,17.3,5.3,18,7.74,18C13.54,18,17.38,13.4,17.38,9.6C17.38,9.4,17.38,9.3,17.36,9.1C18,8.6,18.7,8,19.3,7.3"/></svg></a></li>
+                    <li><a href="https://www.facebook.com/avynashjha/" target="_blank" title="Facebook"><svg class="svg-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.2 10.8h-2v6h-3v-6H8.5v-2.4h1.7V7.1c0-1.25.7-2.1 2.1-2.1h1.9v2.4h-1.4c-.31 0-.5.24-.5.6v1.2h1.9l-.2 2.4z"/></svg></a></li>
+                    <li><a href="https://revive-bihar.blogspot.com/" target="_blank" title="Blog"> B </a></li>
+                     <!-- Add other social icons/links -->
+                </ul>
+            </div>
+             <div class="footer-col footer-col-3">
+                 <small>© {{ "now" | date: "%Y" }} Avinash Jha. All rights reserved.</small>
+             </div>
+        </div>
+    </footer>
+
+    <!-- Basic JS for Mobile Nav Toggle -->
+    <script>
+        const navTrigger = document.getElementById('nav-trigger');
+        const mainContent = document.querySelector('.page-content'); // Get main content area
+
+        // Close nav when clicking outside or on a link (for mobile)
+        function closeNav() {
+            if (navTrigger.checked) {
+                navTrigger.checked = false;
+            }
+        }
+
+        // Add listener to close nav when clicking on main content
+        if (mainContent) {
+            mainContent.addEventListener('click', closeNav);
+        }
+
+        // Add listener to close nav when clicking a nav link
+        const navLinks = document.querySelectorAll('.site-nav .trigger a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', closeNav);
+        });
+    </script>
+
+</body>
+</html>
