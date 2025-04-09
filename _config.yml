@@ -1,0 +1,39 @@
+# Site settings
+title: Avinash Jha - Vision for Bihar Rebirth
+email: avinashrjhaa@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Official website of Avinash Ranjan Jha, sharing his vision, roadmap (including Mithila Samriddhi Panchasutri),
+  and insights for the regeneration and development of Bihar and India. Learn about his work, profile, and the book "Bihar Rebirth: A Roadmap".
+baseurl: "" # Keep empty for hosting at the root.
+url: "https://avinashjha.in" # Your custom domain
+twitter_username: astroavinash
+# github_username: avinashrjha # Uncomment if you want to link GitHub profile
+
+# Build settings
+# theme: minima # Comment out or remove if using custom SASS fully
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Markdown Processing
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+# Sass settings
+sass:
+  sass_dir: _sass
+  style: compressed # Use compressed for production
+
+# Exclude from processing.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+  - LICENSE
