@@ -93,12 +93,12 @@
         /* Header & Navigation */
         .site-header { background-color: var(--white-color); border-bottom: 1px solid var(--grey-color-light); position: sticky; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
         .site-header .wrapper { display: flex; justify-content: space-between; align-items: center; min-height: var(--header-height); }
-        .site-title { font-size: 1.6rem; font-weight: 600; color: var(--brand-color); text-decoration: none; letter-spacing: -0.5px; white-space: nowrap; } /* Prevent title wrapping */
+        .site-title { font-size: 1.6rem; font-weight: 600; color: var(--brand-color); text-decoration: none; letter-spacing: -0.5px; white-space: nowrap; }
         .site-title:hover { color: var(--brand-color-dark); }
 
         .site-nav { display: flex; align-items: center; }
-        .site-nav .desktop-nav { display: flex; align-items: center; } /* Container for desktop links + lang */
-        .site-nav .nav-links { display: flex; } /* Links container */
+        .site-nav .desktop-nav { display: flex; align-items: center; }
+        .site-nav .nav-links { display: flex; }
         .site-nav .page-link { font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif; font-weight: 500; color: var(--grey-color-dark); text-decoration: none; padding: 8px 12px; margin-left: 10px; border-radius: var(--border-radius); transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out; font-size: 0.95rem; white-space: nowrap; }
         .site-nav .page-link:hover, .site-nav .page-link.active { color: var(--brand-color); background-color: rgba(0, 86, 179, 0.05); text-decoration: none; }
 
@@ -113,9 +113,9 @@
         .mobile-nav-toggle svg path { fill: var(--grey-color-dark); }
 
         .mobile-nav {
-            display: none; /* Hidden by default */
+            display: none;
             position: absolute;
-            top: var(--header-height); /* Position below header */
+            top: var(--header-height);
             right: 0;
             background-color: var(--white-color);
             border: 1px solid var(--grey-color-light);
@@ -131,14 +131,27 @@
          .mobile-nav a.page-link:last-child { border-bottom: none; }
          .mobile-nav a.page-link:hover, .mobile-nav a.page-link.active { background-color: var(--brand-color); color: var(--white-color); }
          /* Mobile Lang Switch */
-         .mobile-lang-switch { padding: 12px 20px; border-top: 1px solid var(--grey-color-light);}
-         .mobile-lang-switch button { width: 100%; text-align: left; }
+         .mobile-lang-switch { padding: 0; margin: 0;} /* Removed extra padding/margin */
+         .mobile-lang-switch button {
+             width: 100%;
+             text-align: left;
+             background: none;
+             border: none;
+             border-top: 1px solid var(--grey-color-light); /* Separator */
+             padding: 12px 20px; /* Match link padding */
+             cursor: pointer;
+             font-family: inherit;
+             font-size: 1rem; /* Match link font size */
+             color: var(--grey-color-dark);
+             border-radius: 0; /* No radius needed */
+        }
+         .mobile-lang-switch button:hover { background-color: var(--brand-color); color: var(--white-color); }
 
 
-        @media (max-width: 850px) { /* Adjusted breakpoint for mobile nav */
-            .site-nav .desktop-nav { display: none; } /* Hide desktop links + lang */
+        @media (max-width: 850px) {
+            .site-nav .desktop-nav { display: none; }
             .mobile-nav-toggle { display: block; }
-            body.mobile-nav-active .mobile-nav { display: block; } /* Show mobile nav when body class is added */
+            body.mobile-nav-active .mobile-nav { display: block; }
         }
 
         /* Main Content Area */
@@ -165,48 +178,48 @@
         /* About Section */
         .about-content { display: flex; align-items: flex-start; gap: var(--spacing-unit); }
         .about-text { flex: 1; }
-        #about .profile-pic { max-width: 250px; min-width: 200px; border-radius: 50%; border: 6px solid var(--white-color); box-shadow: 0 5px 20px rgba(0,0,0,0.15); margin: 0; } /* Removed float */
+        #about .profile-pic { max-width: 250px; min-width: 200px; height: auto; border-radius: var(--border-radius); border: 6px solid var(--white-color); box-shadow: 0 5px 20px rgba(0,0,0,0.15); margin: 0; }
          @media (max-width: 700px) {
-            .about-content { flex-direction: column; align-items: center; text-align: center; }
-            #about .profile-pic { margin-bottom: var(--spacing-unit); }
+            .about-content { flex-direction: column; align-items: center; text-align: justify; } /* Justify text on mobile */
+            #about .profile-pic { margin-bottom: var(--spacing-unit); border-radius: 50%;} /* Circular on mobile */
          }
 
         /* Book Section */
          .book-content { display: flex; align-items: flex-start; gap: var(--spacing-unit); }
          .book-details { flex: 1; }
-        #book .book-cover { max-width: 280px; min-width: 200px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); border: 1px solid var(--grey-color-light); padding: 5px; background-color: white; margin: 0; } /* Removed float */
+        #book .book-cover { max-width: 280px; min-width: 200px; height: auto; box-shadow: 0 8px 20px rgba(0,0,0,0.15); border: 1px solid var(--grey-color-light); padding: 5px; background-color: white; margin: 0; border-radius: var(--border-radius);}
         .purchase-buttons { margin-top: var(--spacing-unit); }
-        .purchase-buttons a { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.15); display: inline-block; margin: 5px; }
-        .purchase-buttons a.amazon { background-color: #ff9900; color: white; padding: 10px 20px; border-radius: var(--border-radius); text-decoration: none; }
+        .purchase-buttons a { font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif; font-weight: 600; font-size: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.15); display: inline-block; margin: 5px; padding: 10px 20px; border-radius: var(--border-radius); text-decoration: none; }
+        .purchase-buttons a.amazon { background-color: #ff9900; color: white; }
         .purchase-buttons a.amazon:hover { background-color: #e68a00; }
-        .purchase-buttons a.notionpress { background-color: #333; color: white; padding: 10px 20px; border-radius: var(--border-radius); text-decoration: none;}
+        .purchase-buttons a.notionpress { background-color: #333; color: white; }
         .purchase-buttons a.notionpress:hover { background-color: #555; }
          @media (max-width: 700px) {
-             .book-content { flex-direction: column-reverse; align-items: center; text-align: center; } /* Image below text on mobile */
+             .book-content { flex-direction: column-reverse; align-items: center; text-align: justify; } /* Justify text */
              #book .book-cover { margin-bottom: var(--spacing-unit); }
-             .purchase-buttons { margin-top: 10px;}
+             .purchase-buttons { margin-top: 10px; text-align: center;} /* Center buttons */
          }
 
 
         /* Vision Section - List styling */
         #vision ol { padding-left: 0; list-style: none;}
         #vision ol > li { background-color: #e7f1ff; padding: 15px 20px; margin-bottom: 15px; border-radius: var(--border-radius); position: relative; counter-increment: vision-counter; padding-left: 55px; }
-        #vision ol > li::before { content: counter(vision-counter); position: absolute; left: 15px; top: 15px; background-color: var(--brand-color); color: white; width: 25px; height: 25px; border-radius: 50%; display: inline-block; text-align: center; line-height: 25px; font-weight: bold; font-size: 0.9rem; }
+        #vision ol > li::before { content: counter(vision-counter); position: absolute; left: 15px; top: 15px; background-color: var(--brand-color); color: white; width: 25px; height: 25px; border-radius: 50%; display: inline-flex; /* Use flex */ justify-content: center; align-items: center; font-weight: bold; font-size: 0.9rem; }
         #vision ul { list-style: none; padding-left: 20px; margin-top: 10px;}
-        #vision ul li { margin-bottom: 8px; position: relative; padding-left: 20px; }
-        #vision ul li::before { content: '✓'; color: var(--brand-color); font-weight: bold; position: absolute; left: 0; top: 1px; } /* Adjusted position */
+        #vision ul li { margin-bottom: 8px; position: relative; padding-left: 25px; } /* Increased padding */
+        #vision ul li::before { content: '➔'; /* Arrow */ color: var(--accent-color); font-weight: bold; position: absolute; left: 0; top: 0px; font-size: 1.2em;} /* Adjusted position and size */
 
         /* Contact Form */
-        .contact-form { box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 700px; /* Wider form */}
-        .contact-form div { margin-bottom: var(--spacing-unit); } /* Add margin to form elements */
+        .contact-form { box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 700px; }
+        .contact-form div { margin-bottom: var(--spacing-unit); }
         .contact-form label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--grey-color-dark); }
         .contact-form input[type="text"],
         .contact-form input[type="email"],
-        .contact-form textarea { width: 100%; /* Full width */ padding: 14px; border: 1px solid var(--grey-color-light); border-radius: var(--border-radius); font-family: inherit; font-size: 1rem; line-height: inherit; }
+        .contact-form textarea { width: 100%; padding: 14px; border: 1px solid var(--grey-color-light); border-radius: var(--border-radius); font-family: inherit; font-size: 1rem; line-height: inherit; }
         .contact-form input[type="text"]:focus,
         .contact-form input[type="email"]:focus,
-        .contact-form textarea:focus { border-color: var(--brand-color); outline: none; box-shadow: 0 0 8px rgba(0, 86, 179, 0.3); } /* Enhanced focus */
-        .contact-form textarea { min-height: 200px; /* Taller textarea */ resize: vertical; }
+        .contact-form textarea:focus { border-color: var(--brand-color); outline: none; box-shadow: 0 0 8px rgba(0, 86, 179, 0.3); }
+        .contact-form textarea { min-height: 200px; resize: vertical; }
         .contact-form button[type="submit"] { font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif; font-size: 1.1rem; font-weight: 600; padding: 14px 30px; }
 
         /* Footer */
@@ -215,16 +228,16 @@
         .site-footer .footer-col { padding: 10px 0; }
         .site-footer .footer-col-1 { flex-basis: 40%;}
         .site-footer .footer-col-2 { flex-basis: 30%; text-align: right;}
-        .site-footer .footer-col-3 { flex-basis: 100%; text-align: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid #555; } /* Darker border */
+        .site-footer .footer-col-3 { flex-basis: 100%; text-align: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid #555; }
         .site-footer a { color: var(--white-color); } .site-footer a:hover { text-decoration: underline; }
         .site-footer ul { list-style: none; padding-left: 0; margin-bottom: 0;}
         .site-footer .contact-list li, .site-footer .social-media-list li { margin-bottom: 5px; }
         .site-footer .social-media-list { text-align: right; }
         .site-footer .social-media-list li { display: inline-block; margin-left: 15px; }
-        .site-footer .social-media-list a { display: inline-flex; align-items: center; } /* Align icon and text */
+        .site-footer .social-media-list a { display: inline-flex; align-items: center; }
         .site-footer .social-media-list svg { width: 22px; height: 22px; vertical-align: middle; fill: var(--white-color); transition: fill 0.2s ease;}
         .site-footer .social-media-list a:hover svg { fill: var(--accent-color); }
-        .site-footer .social-media-list .icon-label { margin-left: 5px; vertical-align: middle; font-size: 0.85rem;} /* Smaller label */
+        .site-footer .social-media-list .icon-label { margin-left: 5px; vertical-align: middle; font-size: 0.85rem;}
         @media (max-width: 850px) {
             .site-footer .wrapper { flex-direction: column; text-align: center; }
             .site-footer .footer-col-1, .site-footer .footer-col-2 { flex-basis: 100%; text-align: center; margin-bottom: 15px;}
@@ -232,45 +245,31 @@
             .site-footer .social-media-list li { margin: 0 10px; }
         }
 
-        /* Language Specific Content (Hide by default) */
-        [lang="hi"] { display: none; }
-        body.lang-hi [lang="en"] { display: none; }
-        body.lang-hi [lang="hi"] { display: inline; } /* Default to inline */
-        /* Display block for block-level elements when Hindi is active */
-        body.lang-hi h1[lang="hi"], body.lang-hi h2[lang="hi"], body.lang-hi h3[lang="hi"],
-        body.lang-hi p[lang="hi"], body.lang-hi div[lang="hi"], body.lang-hi ul[lang="hi"],
-        body.lang-hi ol[lang="hi"], body.lang-hi li[lang="hi"], body.lang-hi small[lang="hi"],
-        body.lang-hi button[lang="hi"], body.lang-hi label[lang="hi"],
-        body.lang-hi a.cta-button[lang="hi"], body.lang-hi .purchase-buttons p[lang="hi"] { display: block; }
-        /* Display inline-block for buttons if needed */
-        body.lang-hi button[type="submit"][lang="hi"], body.lang-hi a.purchase-buttons a[lang="hi"] { display: inline-block; }
-        /* Ensure visibility for specifically targeted elements */
-         body.lang-hi .site-title span[lang="hi"] { display: inline; }
-         body.lang-hi .site-nav .page-link span[lang="hi"] { display: inline; }
-         body.lang-hi .lang-switch button span[lang="hi"] { display: inline; }
-         body.lang-hi .site-footer .contact-list li[lang="hi"] { display: list-item; }
-         body.lang-hi .site-footer .social-media-list .icon-label[lang="hi"] { display: inline; }
-         body.lang-hi .footer-col-3 small[lang="hi"] { display: block; }
-         body.lang-hi .contact-form label[lang="hi"] { display: block; }
-         body.lang-hi .purchase-buttons p[lang="hi"] { display: block; }
+        /* Language Specific Content */
+        html:not(.lang-hi) [lang="hi"],
+        html:not(.lang-en) [lang="en"] {
+            display: none !important; /* Use !important cautiously */
+        }
+
+        /* Ensure block display for block elements in the active language */
+        html.lang-hi [lang="hi"].block-element,
+        html.lang-en [lang="en"].block-element {
+             display: block !important;
+         }
+         /* Ensure inline display for inline elements in the active language */
+         html.lang-hi [lang="hi"].inline-element,
+         html.lang-en [lang="en"].inline-element {
+             display: inline !important;
+         }
+         /* Default to inline if no specific class is set */
+         html.lang-hi [lang="hi"],
+         html.lang-en [lang="en"] {
+              display: revert !important; /* Revert to default display type */
+         }
 
 
-         /* Hide English elements when Hindi is active */
-         body.lang-hi .site-title span[lang="en"],
-         body.lang-hi .site-nav .page-link span[lang="en"],
-         body.lang-hi .lang-switch button span[lang="en"],
-         body.lang-hi h1[lang="en"], body.lang-hi h2[lang="en"], body.lang-hi h3[lang="en"],
-         body.lang-hi p[lang="en"], body.lang-hi div[lang="en"], body.lang-hi ul[lang="en"],
-         body.lang-hi ol[lang="en"], body.lang-hi li[lang="en"], body.lang-hi small[lang="en"],
-         body.lang-hi button[lang="en"], body.lang-hi label[lang="en"],
-         body.lang-hi a.cta-button[lang="en"],
-         body.lang-hi .site-footer .contact-list li[lang="en"],
-         body.lang-hi .site-footer .social-media-list .icon-label[lang="en"],
-         body.lang-hi .footer-col-3 small[lang="en"],
-         body.lang-hi .contact-form label[lang="en"],
-         body.lang-hi .purchase-buttons p[lang="en"]
-          { display: none; }
-
+        /* Utility */
+        .clearfix::after { content: ""; display: table; clear: both; }
 
     </style>
 </head>
@@ -282,24 +281,24 @@
     <header class="site-header" role="banner">
         <div class="wrapper">
             <a class="site-title" rel="author" href="#home">
-                <span lang="en">Avinash Jha - Vision for Bihar Revival</span>
-                <span lang="hi">अविनाश झा - बिहार पुनर्निर्माण की दृष्टि</span>
+                <!-- Use inline-element class for spans inside the title -->
+                <span lang="en" class="inline-element">Avinash Jha - Vision for Bihar Revival</span>
+                <span lang="hi" class="inline-element">अविनाश झा - बिहार पुनर्निर्माण की दृष्टि</span>
             </a>
             <nav class="site-nav">
                 <!-- Desktop Navigation -->
                 <div class="desktop-nav">
                     <div class="nav-links">
-                        <a class="page-link" href="#home"><span lang="en">Home</span><span lang="hi">होम</span></a>
-                        <a class="page-link" href="#about"><span lang="en">About</span><span lang="hi">परिचय</span></a>
-                        <a class="page-link" href="#book"><span lang="en">The Book</span><span lang="hi">पुस्तक</span></a>
-                        <a class="page-link" href="#vision"><span lang="en">Vision & Roadmap</span><span lang="hi">दृष्टि और रोडमैप</span></a>
-                        <a class="page-link" href="#contact"><span lang="en">Contact</span><span lang="hi">संपर्क</span></a>
+                        <a class="page-link" href="#home"><span lang="en" class="inline-element">Home</span><span lang="hi" class="inline-element">होम</span></a>
+                        <a class="page-link" href="#about"><span lang="en" class="inline-element">About</span><span lang="hi" class="inline-element">परिचय</span></a>
+                        <a class="page-link" href="#book"><span lang="en" class="inline-element">The Book</span><span lang="hi" class="inline-element">पुस्तक</span></a>
+                        <a class="page-link" href="#vision"><span lang="en" class="inline-element">Vision & Roadmap</span><span lang="hi" class="inline-element">दृष्टि और रोडमैप</span></a>
+                        <a class="page-link" href="#contact"><span lang="en" class="inline-element">Contact</span><span lang="hi" class="inline-element">संपर्क</span></a>
                     </div>
-                     <!-- Language Switcher (Desktop) -->
                      <div class="lang-switch">
                         <button id="lang-toggle-btn">
-                            <span lang="en">हिन्दी</span>
-                            <span lang="hi">English</span>
+                            <span lang="en" class="inline-element">हिन्दी</span>
+                            <span lang="hi" class="inline-element">English</span>
                         </button>
                     </div>
                 </div>
@@ -309,18 +308,17 @@
                      <svg viewBox="0 0 18 15" width="18px" height="15px"><path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/></svg>
                  </button>
 
-                 <!-- Mobile Navigation Menu (Hidden by default) -->
+                 <!-- Mobile Navigation Menu -->
                  <div class="mobile-nav">
-                    <a class="page-link" href="#home"><span lang="en">Home</span><span lang="hi">होम</span></a>
-                    <a class="page-link" href="#about"><span lang="en">About</span><span lang="hi">परिचय</span></a>
-                    <a class="page-link" href="#book"><span lang="en">The Book</span><span lang="hi">पुस्तक</span></a>
-                    <a class="page-link" href="#vision"><span lang="en">Vision & Roadmap</span><span lang="hi">दृष्टि और रोडमैप</span></a>
-                    <a class="page-link" href="#contact"><span lang="en">Contact</span><span lang="hi">संपर्क</span></a>
-                    <!-- Language Switcher (Mobile) -->
+                    <a class="page-link" href="#home"><span lang="en" class="inline-element">Home</span><span lang="hi" class="inline-element">होम</span></a>
+                    <a class="page-link" href="#about"><span lang="en" class="inline-element">About</span><span lang="hi" class="inline-element">परिचय</span></a>
+                    <a class="page-link" href="#book"><span lang="en" class="inline-element">The Book</span><span lang="hi" class="inline-element">पुस्तक</span></a>
+                    <a class="page-link" href="#vision"><span lang="en" class="inline-element">Vision & Roadmap</span><span lang="hi" class="inline-element">दृष्टि और रोडमैप</span></a>
+                    <a class="page-link" href="#contact"><span lang="en" class="inline-element">Contact</span><span lang="hi" class="inline-element">संपर्क</span></a>
                      <div class="mobile-lang-switch">
                         <button id="mobile-lang-toggle-btn">
-                            <span lang="en">भाषा बदलें (हिन्दी)</span>
-                            <span lang="hi">Change Language (English)</span>
+                            <span lang="en" class="inline-element">भाषा बदलें (हिन्दी)</span>
+                            <span lang="hi" class="inline-element">Change Language (English)</span>
                         </button>
                     </div>
                  </div>
@@ -334,39 +332,45 @@
         <!-- Section 1: Home/Banner -->
         <section id="home">
             <div class="wrapper">
-                <h1 lang="en">Avinash Jha: Vision for Bihar's Revival</h1>
-                <h1 lang="hi">अविनाश झा: बिहार पुनर्निर्माण की दृष्टि</h1>
-                <p lang="en" class="subtitle">A New Dawn for Bihar: Development through Data, Technology, and Collective Resolve. Exploring solutions for floods, migration, unemployment, and charting a course towards a prosperous future.</p>
-                <p lang="hi" class="subtitle">बिहार के लिए एक नया सवेरा: डेटा, प्रौद्योगिकी और सामूहिक संकल्प के माध्यम से विकास। बाढ़, पलायन, बेरोजगारी के समाधान तलाशना और समृद्ध भविष्य की ओर अग्रसर होना।</p>
-                <a href="#vision" class="cta-button" lang="en">Explore the Roadmap</a>
-                <a href="#vision" class="cta-button" lang="hi">रोडमैप देखें</a>
+                <!-- Add block-element class to headings -->
+                <h1 lang="en" class="block-element">Avinash Jha: Vision for Bihar's Revival</h1>
+                <h1 lang="hi" class="block-element">अविनाश झा: बिहार पुनर्निर्माण की दृष्टि</h1>
+                 <!-- Add block-element class to paragraphs -->
+                <p lang="en" class="subtitle block-element">A New Dawn for Bihar: Development through Data, Technology, and Collective Resolve. Exploring solutions for floods, migration, unemployment, and charting a course towards a prosperous future.</p>
+                <p lang="hi" class="subtitle block-element">बिहार के लिए एक नया सवेरा: डेटा, प्रौद्योगिकी और सामूहिक संकल्प के माध्यम से विकास। बाढ़, पलायन, बेरोजगारी के समाधान तलाशना और समृद्ध भविष्य की ओर अग्रसर होना।</p>
+                 <!-- Add block-element class to buttons/links that should be block -->
+                <a href="#vision" class="cta-button block-element" lang="en">Explore the Roadmap</a>
+                <a href="#vision" class="cta-button block-element" lang="hi">रोडमैप देखें</a>
             </div>
         </section>
 
         <!-- Section 2: About -->
         <section id="about">
             <div class="wrapper">
-                 <h2 lang="en">About Avinash Jha</h2>
-                 <h2 lang="hi">अविनाश झा का परिचय</h2>
+                 <h2 lang="en" class="block-element">About Avinash Jha</h2>
+                 <h2 lang="hi" class="block-element">अविनाश झा का परिचय</h2>
                 <div class="about-content">
-                    <!-- Profile Picture -->
                     <img src="./assets/images/placeholder.jpg" lang="en" alt="Avinash Ranjan Jha" class="profile-pic">
                     <img src="./assets/images/placeholder.jpg" lang="hi" alt="अविनाश रंजन झा" class="profile-pic">
                     <div class="about-text">
-                        <div lang="en">
+                        <div lang="en" class="block-element">
                              <p><b>Avinash Ranjan Jha</b> is a dynamic and educated young politician, thinker, and social activist deeply committed to the regeneration of his home state, Bihar, and the broader Ganga-Yamuna region.</p>
-                             <h3>Background & Journey:</h3>
+                             <h3 class="block-element">Background & Journey:</h3>
                              <p>Born in Prayagraj (UP) and brought up in Bihar, he holds an MBA and tech certifications (MCSE, CCNA). After a successful corporate career (2001-08), the 2008 Kosi flood tragedy spurred him to dedicate his life to public service. He founded the <b>"Bihar Revival Forum"</b> ([revive-bihar.blogspot.com](https://revive-bihar.blogspot.com/)) advocating solutions like the Adbhut Samriddhi Canal.</p>
-                             <h3>Political & Social Work:</h3>
-                             <p>With nearly three decades in politics (since 1995), associated with INC and RJD (serving as State Gen. Sec.), he possesses extensive grassroots experience. His focus is on <b>"Development through data and technology-based politics,"</b> aiming for a holistic revival of Bihar emphasizing Education, Employment, Infrastructure, Good Governance, and Social Justice.</p>
+                             <h3 class="block-element">Political & Social Work:</h3>
+                             <p>With nearly three decades in politics (since 1995), associated with INC and RJD (serving as State Gen. Sec.), he possesses extensive grassroots experience. His focus is on <b>"Development through data and technology-based politics,"</b> aiming for a holistic revival of Bihar.</p>
+                             <h3 class="block-element">Vision for Bihar:</h3>
+                             <p>Avinash envisions a holistic revival of Bihar – making it self-reliant, progressive, equitable, prosperous, culturally vibrant, and sustainable.</p>
                              <p>Beyond politics, Avinash holds an interest in Astrology (@astroavinash).</p>
                         </div>
-                        <div lang="hi">
+                        <div lang="hi" class="block-element">
                              <p><b>अविनाश रंजन झा</b> बिहार और व्यापक गंगा-यमुना क्षेत्र के पुनर्निर्माण के लिए गहराई से प्रतिबद्ध एक गतिशील, शिक्षित युवा राजनेता, विचारक और सामाजिक कार्यकर्ता हैं।</p>
-                            <h3>पृष्ठभूमि और यात्रा:</h3>
+                            <h3 class="block-element">पृष्ठभूमि और यात्रा:</h3>
                              <p>प्रयागराज (यूपी) में जन्मे और बिहार में पले-बढ़े, उनके पास एमबीए और तकनीकी प्रमाणपत्र (एमएससीई, सीसीएनए) हैं। एक सफल कॉर्पोरेट करियर (2001-08) के बाद, 2008 की कोसी बाढ़ त्रासदी ने उन्हें सार्वजनिक सेवा के लिए प्रेरित किया। उन्होंने <b>"बिहार रिवाइवल फोरम"</b> ([revive-bihar.blogspot.com](https://revive-bihar.blogspot.com/)) की स्थापना की, जो अद्भुत समृद्धि नहर जैसे समाधानों की वकालत करता है।</p>
-                            <h3>राजनीतिक और सामाजिक कार्य:</h3>
-                             <p>लगभग तीन दशकों की राजनीतिक भागीदारी (1995 से) के साथ, INC और RJD (राज्य महासचिव के रूप में कार्यरत) से जुड़े, उनके पास व्यापक जमीनी अनुभव है। उनका ध्यान <b>"डेटा और प्रौद्योगिकी आधारित राजनीति के माध्यम से विकास"</b> पर है, जिसका लक्ष्य शिक्षा, रोजगार, बुनियादी ढांचे, सुशासन और सामाजिक न्याय पर जोर देते हुए बिहार का समग्र पुनर्निर्माण करना है।</p>
+                            <h3 class="block-element">राजनीतिक और सामाजिक कार्य:</h3>
+                             <p>लगभग तीन दशकों की राजनीतिक भागीदारी (1995 से) के साथ, INC और RJD (राज्य महासचिव के रूप में कार्यरत) से जुड़े, उनके पास व्यापक जमीनी अनुभव है। उनका ध्यान <b>"डेटा और प्रौद्योगिकी आधारित राजनीति के माध्यम से विकास"</b> पर है, जिसका लक्ष्य बिहार का समग्र पुनर्निर्माण करना है।</p>
+                            <h3 class="block-element">बिहार के लिए दृष्टि:</h3>
+                             <p>अविनाश बिहार के एक समग्र पुनर्निर्माण की कल्पना करते हैं - इसे आत्मनिर्भर, प्रगतिशील, न्यायसंगत, समृद्ध, सांस्कृतिक रूप से जीवंत और टिकाऊ बनाना।</p>
                             <p>राजनीति से परे, अविनाश ज्योतिष (@astroavinash) में भी रुचि रखते हैं।</p>
                         </div>
                     </div>
@@ -377,44 +381,43 @@
         <!-- Section 3: The Book -->
         <section id="book">
             <div class="wrapper">
-                 <h2 lang="en">The Book - Bihar Revival: A Roadmap</h2>
-                 <h2 lang="hi">पुस्तक - बिहार पुनर्निर्माण: एक रोडमैप</h2>
+                 <h2 lang="en" class="block-element">The Book - Bihar Revival: A Roadmap</h2>
+                 <h2 lang="hi" class="block-element">पुस्तक - बिहार पुनर्निर्माण: एक रोडमैप</h2>
                  <div class="book-content">
                      <div class="book-details">
-                         <div lang="en">
+                         <div lang="en" class="block-element">
                             <p>"Bihar Revival: A Roadmap" by Avinash Jha is a comprehensive <b>blueprint for action</b> for the state's holistic regeneration. It confronts Bihar's harsh realities and offers bold, integrated solutions.</p>
-                            <h3>Key Highlights:</h3>
-                             <ul>
+                            <h3 class="block-element">Key Highlights:</h3>
+                             <ul class="block-element">
                                  <li>In-depth Analysis of challenges (Parts 1-4).</li>
                                  <li>Ideological Foundation: Gandhism, Socialism, Lohia-JP (Part 3).</li>
                                  <li><b>The Panchasutri Solution (Part 5):</b> Adbhut Samriddhi Canal, SEZs, Pag-Pag Pokhar, IT City (Hub & Spoke), Janaki Circuit.</li>
                                  <li><b>Implementation & Future Vision (Part 6 & Supplement):</b> Sustainable Energy, Good Governance, Digital Leapfrogging, Economic Diversification, Investor Outreach, Systemic Reforms.</li>
                              </ul>
                              <p>Essential reading for policymakers, diaspora, investors, students, and anyone invested in Bihar's future. It's a call to action.</p>
-                             <div class="purchase-buttons">
+                             <div class="purchase-buttons block-element">
                                  <p><b>Purchase the Book:</b></p>
                                  <a href="https://www.amazon.in/dp/B0F4984SVJ" target="_blank" rel="noopener noreferrer" class="amazon">Buy on Amazon.in</a>
                                  <a href="https://direct.notionpress.com/in/read/bihar-punarnirman-a-roadmap-hardcover" target="_blank" rel="noopener noreferrer" class="notionpress">Buy on Notion Press</a>
                              </div>
                         </div>
-                         <div lang="hi">
+                         <div lang="hi" class="block-element">
                             <p>"बिहार पुनर्निर्माण: एक रोडमैप" अविनाश झा द्वारा रचित, राज्य के समग्र पुनर्निर्माण के लिए एक व्यापक <b>कार्य योजना</b> है। यह बिहार की कठोर वास्तविकताओं का सामना करती है और साहसिक, एकीकृत समाधान प्रदान करती है।</p>
-                            <h3>मुख्य विशेषताएं:</h3>
-                             <ul>
+                            <h3 class="block-element">मुख्य विशेषताएं:</h3>
+                             <ul class="block-element">
                                  <li>चुनौतियों का गहन विश्लेषण (भाग 1-4)।</li>
                                  <li>वैचारिक आधार: गांधीवाद, समाजवाद, लोहिया-जेपी (भाग 3)।</li>
                                  <li><b>पंचसूत्री समाधान (भाग 5):</b> अद्भुत समृद्धि नहर, SEZ, पग-पग पोखर, आईटी सिटी (हब और स्पोक), जानकी सर्किट।</li>
                                  <li><b>कार्यान्वयन और भविष्य की दृष्टि (भाग 6 और पूरक):</b> सतत ऊर्जा, सुशासन, डिजिटल छलांग, आर्थिक विविधीकरण, निवेशक आउटरीच, प्रणालीगत सुधार।</li>
                              </ul>
                              <p>नीति निर्माताओं, प्रवासी भारतीयों, निवेशकों, छात्रों और बिहार के भविष्य में रुचि रखने वाले किसी भी व्यक्ति के लिए आवश्यक पठन। यह कार्रवाई का आह्वान है।</p>
-                              <div class="purchase-buttons">
-                                 <p><b>पुस्तक खरीदें:</b></p>
-                                 <a lang="hi" href="https://www.amazon.in/dp/B0F4984SVJ" target="_blank" rel="noopener noreferrer" class="amazon">Amazon.in पर खरीदें</a>
-                                 <a lang="hi" href="https://direct.notionpress.com/in/read/bihar-punarnirman-a-roadmap-hardcover" target="_blank" rel="noopener noreferrer" class="notionpress">Notion Press पर खरीदें</a>
+                              <div class="purchase-buttons block-element">
+                                 <p class="block-element"><b>पुस्तक खरीदें:</b></p>
+                                 <a lang="hi" href="https://www.amazon.in/dp/B0F4984SVJ" target="_blank" rel="noopener noreferrer" class="amazon inline-element">Amazon.in पर खरीदें</a>
+                                 <a lang="hi" href="https://direct.notionpress.com/in/read/bihar-punarnirman-a-roadmap-hardcover" target="_blank" rel="noopener noreferrer" class="notionpress inline-element">Notion Press पर खरीदें</a>
                              </div>
                          </div>
                      </div>
-                     <!-- Book Cover Image -->
                      <img src="./assets/images/AvinashJhaBook.jpg" lang="en" alt="Bihar Revival: A Roadmap Book Cover" class="book-cover">
                      <img src="./assets/images/AvinashJhaBook.jpg" lang="hi" alt="बिहार पुनर्निर्माण: एक रोडमैप पुस्तक कवर" class="book-cover">
                  </div>
@@ -424,56 +427,56 @@
         <!-- Section 4: Vision & Roadmap -->
         <section id="vision">
             <div class="wrapper">
-                 <h2 lang="en">Vision & Roadmap for Bihar's Revival</h2>
-                 <h2 lang="hi">बिहार पुनर्निर्माण के लिए दृष्टि और रोडमैप</h2>
+                 <h2 lang="en" class="block-element">Vision & Roadmap for Bihar's Revival</h2>
+                 <h2 lang="hi" class="block-element">बिहार पुनर्निर्माण के लिए दृष्टि और रोडमैप</h2>
 
-                 <div lang="en">
+                 <div lang="en" class="block-element">
                     <p>The vision is for a <b>holistically regenerated Bihar</b> – prosperous, equitable, educated, healthy, sustainable, culturally vibrant, well-governed, and globally connected. The roadmap is an integrated strategy.</p>
-                    <h3>I. Mithila Samriddhi Panchasutri Pariyojana:</h3>
-                    <ol>
+                    <h3 class="block-element">I. Mithila Samriddhi Panchasutri Pariyojana:</h3>
+                    <ol class="block-element">
                         <li><b>Adbhut Samriddhi Canal:</b> Flood control, irrigation, hydropower, navigation.</li>
                         <li><b>Special Economic Zones (SEZs):</b> Balanced industrial growth & jobs in all divisions.</li>
                         <li><b>Pag-Pag Pokhar Machh Makhan:</b> Reviving water bodies for rural prosperity.</li>
                         <li><b>IT City (Hub & Spoke):</b> Green IT hub + Satellite Parks for global IT/IoT opportunities.</li>
                         <li><b>Janaki Spiritual Circuit:</b> Cultural heritage for tourism.</li>
                     </ol>
-                    <h3>II. Foundational Enablers & Reforms:</h3>
-                    <ul>
+                    <h3 class="block-element">II. Foundational Enablers & Reforms:</h3>
+                    <ul class="block-element">
                         <li><b>Sustainable Energy & Environment:</b> Solar mission, renewables, rainwater harvesting, conservation.</li>
                         <li><b>Good Governance:</b> Transparency, technology, anti-corruption measures.</li>
                         <li><b>Digital Leap (Education & Health):</b> Modern universities (AI, Open Source, Languages), Digital Learning Platform (Nursery-Uni), Telemedicine Network.</li>
-                        <li><b>Economic Diversification & Global Linkages:</b> Farm-to-Kitchen, E-commerce empowerment, Twin Cities, Agri-Exports, Investor Outreach.</li>
+                        <li><b>Economic Diversification & Global Linkages:</b> Farm-to-Kitchen, E-commerce Empowerment, Twin Cities, Agri-Exports, Investor Outreach.</li>
                         <li><b>Addressing Systemic Issues:</b> Electoral integrity, regional aspirations dialogue.</li>
                     </ul>
-                     <h3>III. Implementation Strategy:</h3>
-                     <ul>
+                     <h3 class="block-element">III. Implementation Strategy:</h3>
+                     <ul class="block-element">
                          <li><b>Bihar Revival Forum/Authority:</b> Coordination & monitoring.</li>
-                         <li><b>Political Will & Funding:</b> Commitment & resources (incl. Special Status/Dues).</li>
+                         <li><b>Political Will & Funding:</b> Commitment & resources.</li>
                          <li><b>Jan Bhagidari:</b> People's movement.</li>
                      </ul>
                  </div>
-                 <div lang="hi">
+                 <div lang="hi" class="block-element">
                     <p>दृष्टि एक <b>समग्र रूप से पुनर्जीवित बिहार</b> की है - समृद्ध, न्यायसंगत, शिक्षित, स्वस्थ, टिकाऊ, सांस्कृतिक रूप से जीवंत, सुशासित और विश्व स्तर पर जुड़ा हुआ। रोडमैप एक एकीकृत रणनीति है।</p>
-                    <h3>I. मिथिला समृद्धि पंचसूत्री परियोजना:</h3>
-                    <ol>
+                    <h3 class="block-element">I. मिथिला समृद्धि पंचसूत्री परियोजना:</h3>
+                    <ol class="block-element">
                         <li><b>अद्भुत समृद्धि नहर:</b> बाढ़ नियंत्रण, व्यापक सिंचाई, जलविद्युत, नौवहन।</li>
                         <li><b>विशेष आर्थिक क्षेत्र (SEZs):</b> सभी प्रमंडलों में संतुलित औद्योगिक विकास और रोजगार।</li>
                         <li><b>पग-पग पोखर माछ मखान:</b> ग्रामीण समृद्धि के लिए जल निकायों का पुनरुद्धार।</li>
                         <li><b>आईटी सिटी (हब और स्पोक):</b> वैश्विक आईटी/आईओटी अवसरों के लिए हरित आईटी हब + सैटेलाइट पार्क।</li>
                         <li><b>जानकी आध्यात्मिक सर्किट:</b> पर्यटन के लिए सांस्कृतिक विरासत।</li>
                     </ol>
-                    <h3>II. मूलभूत समर्थक और प्रणालीगत सुधार:</h3>
-                    <ul>
+                    <h3 class="block-element">II. मूलभूत समर्थक और प्रणालीगत सुधार:</h3>
+                    <ul class="block-element">
                         <li><b>सतत ऊर्जा और पर्यावरण:</b> सौर मिशन, नवीकरणीय ऊर्जा, वर्षा जल संचयन, संरक्षण।</li>
                         <li><b>सुशासन और भ्रष्टाचार उन्मूलन:</b> पारदर्शिता, प्रौद्योगिकी, भ्रष्टाचार विरोधी उपाय।</li>
                         <li><b>डिजिटल छलांग (शिक्षा और स्वास्थ्य):</b> आधुनिकीकृत विश्वविद्यालय (एआई, ओपन सोर्स, भाषाएँ), डिजिटल लर्निंग प्लेटफॉर्म (नर्सरी-विश्वविद्यालय), टेलीमेडिसिन नेटवर्क।</li>
                         <li><b>आर्थिक विविधीकरण और वैश्विक जुड़ाव:</b> 'फार्म-टू-किचन', ई-कॉमर्स सशक्तिकरण, 'ट्विन सिटीज', कृषि-निर्यात, निवेशक आउटरीच।</li>
                         <li><b>प्रणालीगत मुद्दों का समाधान:</b> चुनावी अखंडता, क्षेत्रीय आकांक्षाओं पर संवाद।</li>
                     </ul>
-                     <h3>III. कार्यान्वयन रणनीति:</h3>
-                     <ul>
+                     <h3 class="block-element">III. कार्यान्वयन रणनीति:</h3>
+                     <ul class="block-element">
                          <li><b>बिहार रिवाइवल फोरम/प्राधिकरण:</b> समन्वय और निगरानी।</li>
-                         <li><b>राजनीतिक इच्छाशक्ति और वित्तपोषण:</b> प्रतिबद्धता और संसाधन (विशेष दर्जा/बकाया सहित)।</li>
+                         <li><b>राजनीतिक इच्छाशक्ति और वित्तपोषण:</b> प्रतिबद्धता और संसाधन।</li>
                          <li><b>जन भागीदारी:</b> जन आंदोलन।</li>
                      </ul>
                  </div>
@@ -483,30 +486,30 @@
         <!-- Section 5: Contact -->
         <section id="contact">
             <div class="wrapper">
-                 <h2 lang="en">Contact</h2>
-                 <h2 lang="hi">संपर्क करें</h2>
-                <p lang="en">Your thoughts, suggestions, and participation are crucial for Bihar's revival. Please use the form below to send your message directly to Avinash Jha.</p>
-                <p lang="hi">बिहार के पुनर्निर्माण के लिए आपके विचार, सुझाव और भागीदारी महत्वपूर्ण हैं। कृपया अपना संदेश सीधे अविनाश झा तक भेजने के लिए नीचे दिए गए फॉर्म का उपयोग करें।</p>
+                 <h2 lang="en" class="block-element">Contact</h2>
+                 <h2 lang="hi" class="block-element">संपर्क करें</h2>
+                <p lang="en" class="block-element">Your thoughts, suggestions, and participation are crucial for Bihar's revival. Please use the form below to send your message directly to Avinash Jha.</p>
+                <p lang="hi" class="block-element">बिहार के पुनर्निर्माण के लिए आपके विचार, सुझाव और भागीदारी महत्वपूर्ण हैं। कृपया अपना संदेश सीधे अविनाश झा तक भेजने के लिए नीचे दिए गए फॉर्म का उपयोग करें।</p>
 
                 <form action="https://formsubmit.co/avinashrjhaa@gmail.com" method="POST" class="contact-form">
                     <div>
-                        <label for="name" lang="en">Name:</label>
-                        <label for="name" lang="hi">नाम:</label>
+                        <label for="name" lang="en" class="block-element">Name:</label>
+                        <label for="name" lang="hi" class="block-element">नाम:</label>
                         <input type="text" id="name" name="name" required>
                     </div>
                     <div>
-                        <label for="email" lang="en">Email:</label>
-                        <label for="email" lang="hi">ईमेल:</label>
+                        <label for="email" lang="en" class="block-element">Email:</label>
+                        <label for="email" lang="hi" class="block-element">ईमेल:</label>
                         <input type="email" id="email" name="email" required>
                     </div>
                     <div>
-                        <label for="subject" lang="en">Subject:</label>
-                        <label for="subject" lang="hi">विषय:</label>
+                        <label for="subject" lang="en" class="block-element">Subject:</label>
+                        <label for="subject" lang="hi" class="block-element">विषय:</label>
                         <input type="text" id="subject" name="subject" required>
                     </div>
                     <div>
-                        <label for="message" lang="en">Message:</label>
-                        <label for="message" lang="hi">संदेश:</label>
+                        <label for="message" lang="en" class="block-element">Message:</label>
+                        <label for="message" lang="hi" class="block-element">संदेश:</label>
                         <textarea id="message" name="message" required></textarea>
                     </div>
 
@@ -515,16 +518,16 @@
                     <!-- <input type="hidden" name="_next" value="https://avinashjha.in/thankyou.html"> -->
 
                     <div>
-                        <button type="submit" lang="en">Send Message</button>
-                        <button type="submit" lang="hi">संदेश भेजें</button>
+                        <button type="submit" lang="en" class="block-element">Send Message</button>
+                        <button type="submit" lang="hi" class="block-element">संदेश भेजें</button>
                     </div>
                 </form>
 
                 <hr style="margin: calc(var(--spacing-unit)*1.5) 0;">
 
-                 <h3 lang="en">Connect on Social Media:</h3>
-                 <h3 lang="hi">सोशल मीडिया पर जुड़ें:</h3>
-                 <p style="text-align: center; font-size: 1.1rem;">
+                 <h3 lang="en" class="block-element">Connect on Social Media:</h3>
+                 <h3 lang="hi" class="block-element">सोशल मीडिया पर जुड़ें:</h3>
+                 <p style="text-align: center; font-size: 1.1rem;" class="block-element">
                     <a href="https://twitter.com/astroavinash" target="_blank" rel="noopener noreferrer" style="margin: 0 15px;">Twitter</a> |
                     <a href="https://www.facebook.com/avynashjha/" target="_blank" rel="noopener noreferrer" style="margin: 0 15px;">Facebook</a> |
                     <a href="https://revive-bihar.blogspot.com/" target="_blank" rel="noopener noreferrer" style="margin: 0 15px;">Blog</a>
@@ -540,8 +543,8 @@
         <div class="wrapper">
             <div class="footer-col footer-col-1">
                  <ul class="contact-list">
-                    <li lang="en">Avinash Jha</li>
-                    <li lang="hi">अविनाश झा</li>
+                    <li lang="en" class="block-element">Avinash Jha</li>
+                    <li lang="hi" class="block-element">अविनाश झा</li>
                     <li><a href="mailto:avinashrjhaa@gmail.com">avinashrjhaa@gmail.com</a></li>
                  </ul>
             </div>
@@ -553,8 +556,8 @@
                  </ul>
             </div>
              <div class="footer-col footer-col-3">
-                 <small lang="en">© 2024 Avinash Ranjan Jha. All rights reserved.</small>
-                 <small lang="hi">© २०२४ अविनाश रंजन झा। सर्वाधिकार सुरक्षित।</small>
+                 <small lang="en" class="block-element">© 2024 Avinash Ranjan Jha. All rights reserved.</small>
+                 <small lang="hi" class="block-element">© २०२४ अविनाश रंजन झा। सर्वाधिकार सुरक्षित।</small>
              </div>
         </div>
     </footer>
@@ -563,22 +566,26 @@
     <script>
         const langToggleButton = document.getElementById('lang-toggle-btn');
         const mobileLangToggleButton = document.getElementById('mobile-lang-toggle-btn');
-        const body = document.body;
-        const mobileNavToggle = document.querySelector('.mobile-nav-toggle'); // Hamburger Icon
-        const mobileNavMenu = document.querySelector('.mobile-nav'); // The menu itself
+        const htmlEl = document.documentElement; // Target the <html> element
+        const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+        const mobileNavMenu = document.querySelector('.mobile-nav');
 
         // Function to set language preference
         function setLanguage(lang) {
-            body.classList.remove('lang-en', 'lang-hi');
-            body.classList.add(`lang-${lang}`);
-            localStorage.setItem('preferredLanguage', lang); // Save preference
-            // Update active state for nav links if needed (optional)
-             updateActiveNavLinks(window.location.hash);
+            htmlEl.setAttribute('lang', lang); // Set lang attribute on <html>
+            htmlEl.classList.remove('lang-en', 'lang-hi'); // Remove old class from <html>
+            htmlEl.classList.add(`lang-${lang}`); // Add new class to <html>
+            localStorage.setItem('preferredLanguage', lang);
+            updateActiveNavLinks(window.location.hash);
+             // Update button text visibility based on new language
+             document.querySelectorAll('.lang-switch button span, .mobile-lang-switch button span').forEach(span => {
+                span.style.display = span.getAttribute('lang') === lang ? 'none' : 'inline';
+            });
         }
 
         // Toggle language function
         function toggleLanguage() {
-             if (body.classList.contains('lang-en')) {
+             if (htmlEl.classList.contains('lang-en')) {
                 setLanguage('hi');
             } else {
                 setLanguage('en');
@@ -599,77 +606,78 @@
 
         // Check for saved language preference on load
         const savedLang = localStorage.getItem('preferredLanguage');
-        if (savedLang) {
-            setLanguage(savedLang);
-        } else {
-            // Default to English if no preference saved
-            setLanguage('en');
-        }
+        setLanguage(savedLang || 'en'); // Set saved lang or default to 'en'
+
 
         // Mobile Navigation Toggle Logic
          if (mobileNavToggle && mobileNavMenu) {
              mobileNavToggle.addEventListener('click', (event) => {
-                 event.stopPropagation(); // Prevent document click listener
-                 body.classList.toggle('mobile-nav-active'); // Toggle body class instead of checkbox
-             });
-
-             // Close nav when clicking a link inside mobile menu
-             const mobileNavLinks = mobileNavMenu.querySelectorAll('a.page-link');
-             mobileNavLinks.forEach(link => {
-                 link.addEventListener('click', closeMobileNav);
+                 event.stopPropagation();
+                 // Toggle class on body for menu visibility
+                 document.body.classList.toggle('mobile-nav-active');
+                 mobileNavMenu.style.display = document.body.classList.contains('mobile-nav-active') ? 'block' : 'none';
              });
          }
 
         // Function to close mobile nav
         function closeMobileNav() {
-             body.classList.remove('mobile-nav-active');
+             document.body.classList.remove('mobile-nav-active');
+             if (mobileNavMenu) mobileNavMenu.style.display = 'none';
         }
 
          // Close mobile nav when clicking outside
          document.addEventListener('click', (event) => {
-             if (body.classList.contains('mobile-nav-active') &&
-                 !mobileNavMenu.contains(event.target) &&
-                 !mobileNavToggle.contains(event.target)) {
+             if (document.body.classList.contains('mobile-nav-active') &&
+                 mobileNavMenu && !mobileNavMenu.contains(event.target) &&
+                 mobileNavToggle && !mobileNavToggle.contains(event.target)) {
                  closeMobileNav();
              }
          });
 
+         // Close mobile nav when clicking a link inside it
+          const mobileNavLinks = document.querySelectorAll('.mobile-nav a.page-link');
+             mobileNavLinks.forEach(link => {
+                 link.addEventListener('click', () => {
+                     // Slight delay to allow navigation before closing
+                     setTimeout(closeMobileNav, 100);
+                 });
+             });
+
+
         // Active Nav Link Highlighting on Scroll / Click
         const sections = document.querySelectorAll('section');
         const navLinksDesktop = document.querySelectorAll('.desktop-nav .page-link');
-        const navLinksMobile = document.querySelectorAll('.mobile-nav .page-link');
+        const navLinksMobileAll = document.querySelectorAll('.mobile-nav .page-link'); // Select all mobile links
 
         function updateActiveNavLinks(targetId) {
+            const currentHash = targetId || '#home'; // Use #home if targetId is empty
             navLinksDesktop.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === targetId) {
-                    link.classList.add('active');
-                }
+                 link.classList.toggle('active', link.getAttribute('href') === currentHash);
             });
-             navLinksMobile.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === targetId) {
-                    link.classList.add('active');
-                }
-            });
+             navLinksMobileAll.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === currentHash);
+             });
         }
 
-        // Initial active link update based on hash
+        // Initial active link update based on hash or default to home
         updateActiveNavLinks(window.location.hash || '#home');
 
         // Update active link on manual scroll
         window.addEventListener('scroll', () => {
-            let current = '#home'; // Default to home
+            let current = '#home';
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - var(--header-height) - 50; // Adjust offset
+                 // Ensure header height is accounted for, provide a default if variable fails
+                 const headerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height'), 10) || 70;
+                const sectionTop = section.offsetTop - headerHeight - 50; // Adjust offset
                  if (pageYOffset >= sectionTop) {
                     current = '#' + section.getAttribute('id');
                  }
             });
             updateActiveNavLinks(current);
-        });
+        }, { passive: true }); // Use passive listener for better scroll performance
 
-         // Update active link on hash change (e.g., clicking a link)
+
+         // Update active link on hash change
          window.addEventListener('hashchange', () => {
              updateActiveNavLinks(window.location.hash || '#home');
          });
