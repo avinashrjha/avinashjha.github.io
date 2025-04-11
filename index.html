@@ -55,15 +55,21 @@
             --grey-color-dark: #343a40; /* Darker grey */
             --background-color: #f4f7f6;
             --white-color: #fff;
-            --content-width: 960px;
+            --content-width: 960px; /* Slightly wider */
             --spacing-unit: 30px;
             --header-height: 70px;
             --border-radius: 6px;
         }
 
         /* Container */
-        .wrapper { max-width: var(--content-width); margin: 0 auto; padding: 0 calc(var(--spacing-unit) / 1.5); }
-        @media (min-width: 900px) { .wrapper { padding: 0 var(--spacing-unit); } }
+        .wrapper {
+            max-width: var(--content-width);
+            margin: 0 auto;
+            padding: 0 calc(var(--spacing-unit) / 1.5);
+        }
+        @media (min-width: 900px) {
+            .wrapper { padding: 0 var(--spacing-unit); }
+        }
 
         /* Typography */
         h1, h2, h3, h4, h5, h6 { font-weight: 600; color: var(--heading-color); line-height: 1.3; }
@@ -78,6 +84,7 @@
         a { color: var(--brand-color); text-decoration: none; transition: color 0.2s ease; }
         a:hover { color: var(--brand-color-dark); text-decoration: underline; }
         blockquote { color: var(--grey-color); border-left: 5px solid var(--accent-color); padding: 15px 20px; font-size: 1.1rem; font-style: italic; margin: calc(var(--spacing-unit)*1.5) 0; background-color: #f8f9fa; border-radius: 0 var(--border-radius) var(--border-radius) 0; }
+
 
         /* Header & Navigation */
         .site-header { background-color: var(--white-color); border-bottom: 1px solid var(--grey-color-light); position: sticky; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
@@ -97,30 +104,38 @@
         .lang-switch button:hover { background-color: var(--background-color); }
 
         /* Mobile Navigation - Hamburger Menu */
-        .mobile-nav-toggle { display: none; cursor: pointer; padding: 10px; margin-left: 15px; background: none; border: none;}
+        .mobile-nav-toggle {
+             display: none; /* Hidden by default */
+             cursor: pointer;
+             padding: 10px;
+             margin-left: 15px;
+             background: none;
+             border: none;
+             z-index: 1001; /* Ensure it's clickable */
+             position: relative; /* Needed for z-index */
+        }
         .mobile-nav-toggle svg { width: 24px; height: 21px; display: block;}
         .mobile-nav-toggle svg path { fill: var(--grey-color-dark); }
 
         .mobile-nav {
-            display: none; /* Controlled by JS */
+            display: none; /* Hidden by default, shown by JS */
             position: absolute;
             top: var(--header-height);
-            right: 0;
+            right: 10px; /* Position from right */
             background-color: var(--white-color);
             border: 1px solid var(--grey-color-light);
-            border-top: none;
-            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            border-radius: var(--border-radius);
             box-shadow: 0 5px 10px rgba(0,0,0,0.15);
-            width: 200px;
+            width: 220px; /* Slightly wider */
             text-align: left;
             padding: 10px 0;
-            z-index: 999;
+            z-index: 1000; /* Below header but above content */
         }
-         .mobile-nav a.page-link { display: block; padding: 12px 20px; margin: 0; border-bottom: 1px solid var(--grey-color-light); font-size: 1rem; color: var(--grey-color-dark); text-decoration: none; }
+         .mobile-nav a.page-link { display: block; padding: 12px 20px; margin: 0; border-bottom: 1px solid var(--grey-color-light); font-size: 1rem; color: var(--grey-color-dark); text-decoration: none; transition: background-color 0.2s, color 0.2s;}
          .mobile-nav a.page-link:last-child { border-bottom: none; }
          .mobile-nav a.page-link:hover, .mobile-nav a.page-link.active { background-color: var(--brand-color); color: var(--white-color); }
          .mobile-lang-switch { padding: 0; margin: 0;}
-         .mobile-lang-switch button { width: 100%; text-align: left; background: none; border: none; border-top: 1px solid var(--grey-color-light); padding: 12px 20px; cursor: pointer; font-family: inherit; font-size: 1rem; color: var(--grey-color-dark); border-radius: 0; }
+         .mobile-lang-switch button { width: 100%; text-align: left; background: none; border: none; border-top: 1px solid var(--grey-color-light); padding: 12px 20px; cursor: pointer; font-size: 1rem; color: var(--grey-color-dark); border-radius: 0; transition: background-color 0.2s, color 0.2s;}
          .mobile-lang-switch button:hover { background-color: var(--brand-color); color: var(--white-color); }
 
 
@@ -136,7 +151,8 @@
         /* Section Styling */
         section { padding: calc(var(--spacing-unit) * 2) 0; background-color: var(--white-color); margin-bottom: var(--spacing-unit); border-radius: var(--border-radius); box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
         section:last-of-type { margin-bottom: 0; }
-        section img { border-radius: var(--border-radius); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        section img { border-radius: var(--border-radius); box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto; } /* Center images by default */
+
 
         /* Home Banner */
         #home { background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('./assets/images/banner.jpg'); background-size: cover; background-position: center center; color: var(--white-color); text-align: center; padding: calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) / 1.5); border-radius: 0; margin-bottom: var(--spacing-unit); box-shadow: none; }
@@ -146,6 +162,7 @@
         #home .cta-button { background-color: var(--accent-color); padding: 15px 35px; font-size: 1.2rem; box-shadow: 0 4px 8px rgba(0,0,0,0.2); display: inline-block; color: white; text-decoration: none; font-weight: 600; border-radius: var(--border-radius); transition: background-color 0.3s ease; }
         #home .cta-button:hover { background-color: darken(var(--accent-color), 10%); }
          @media (max-width: 600px) { #home h1 { font-size: 2.2rem; } #home .subtitle { font-size: 1.1rem; } }
+
 
         /* About Section */
         .about-content { display: flex; align-items: flex-start; gap: var(--spacing-unit); }
@@ -158,7 +175,7 @@
          .book-details { flex: 1; }
         #book .book-cover { max-width: 280px; min-width: 200px; height: auto; box-shadow: 0 8px 20px rgba(0,0,0,0.15); border: 1px solid var(--grey-color-light); padding: 5px; background-color: white; margin: 0; border-radius: var(--border-radius);}
         .purchase-buttons { margin-top: var(--spacing-unit); }
-        .purchase-buttons a { font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif; font-weight: 600; font-size: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.15); display: inline-block; margin: 5px; padding: 10px 20px; border-radius: var(--border-radius); text-decoration: none; }
+        .purchase-buttons a { font-weight: 600; font-size: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.15); display: inline-block; margin: 5px; padding: 10px 20px; border-radius: var(--border-radius); text-decoration: none; }
         .purchase-buttons a.amazon { background-color: #ff9900; color: white; } .purchase-buttons a.amazon:hover { background-color: #e68a00; }
         .purchase-buttons a.notionpress { background-color: #333; color: white; } .purchase-buttons a.notionpress:hover { background-color: #555; }
          @media (max-width: 700px) { .book-content { flex-direction: column-reverse; align-items: center; text-align: justify; } #book .book-cover { margin-bottom: var(--spacing-unit); } .purchase-buttons { margin-top: 10px; text-align: center;} }
@@ -182,7 +199,7 @@
         .contact-form input[type="email"]:focus,
         .contact-form textarea:focus { border-color: var(--brand-color); outline: none; box-shadow: 0 0 8px rgba(0, 86, 179, 0.3); }
         .contact-form textarea { min-height: 200px; resize: vertical; }
-        .contact-form button[type="submit"] { font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif; font-size: 1.1rem; font-weight: 600; padding: 14px 30px; }
+        .contact-form button[type="submit"] { font-size: 1.1rem; font-weight: 600; padding: 14px 30px; }
 
         /* Footer */
         .site-footer { border-top: 1px solid #ddd; padding: var(--spacing-unit) 0; background-color: var(--grey-color-dark); color: #ccc; font-size: 0.9rem; }
@@ -207,8 +224,8 @@
             .site-footer .social-media-list li { margin: 0 10px; }
         }
 
-        /* --- NO LANGUAGE STYLING NEEDED IN CSS --- */
-        /* JS will handle showing/hiding based on <html> lang attribute */
+        /* Language-Specific Display handled by JS */
+        [lang="en"], [lang="hi"] { /* Ensure elements are initially displayable if needed, JS handles hiding */ }
 
         /* Utility */
         .clearfix::after { content: ""; display: table; clear: both; }
@@ -216,14 +233,14 @@
     </style>
 </head>
 
-<body> <!-- Removed default lang class -->
+<body>
 
     <!-- Header -->
     <header class="site-header" role="banner">
         <div class="wrapper">
             <a class="site-title" rel="author" href="#home">
-                <span lang="en">Bihar Vision</span>
-                <span lang="hi">बिहार विज़न</span>
+                <span lang="en">Bihar Revival Vision</span>
+                <span lang="hi">बिहार पुनर्निर्माण विज़न</span>
             </a>
             <nav class="site-nav">
                 <!-- Desktop Navigation -->
@@ -244,7 +261,7 @@
                 </div>
 
                  <!-- Mobile Navigation Burger -->
-                 <button class="mobile-nav-toggle" aria-label="Toggle Navigation">
+                 <button class="mobile-nav-toggle" aria-label="Toggle Navigation" aria-expanded="false">
                      <svg viewBox="0 0 18 15" width="18px" height="15px"><path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/></svg>
                  </button>
 
@@ -253,7 +270,7 @@
                     <a class="page-link" href="#home"><span lang="en">Home</span><span lang="hi">होम</span></a>
                     <a class="page-link" href="#about"><span lang="en">About</span><span lang="hi">परिचय</span></a>
                     <a class="page-link" href="#book"><span lang="en">The Book</span><span lang="hi">पुस्तक</span></a>
-                    <a class="page-link" href="#vision"><span lang="en">Vision</span><span lang="hi">विज़न</span></a>
+                    <a class="page-link" href="#vision"><span lang="en">Vision & Roadmap</span><span lang="hi">दृष्टि और रोडमैप</span></a>
                     <a class="page-link" href="#contact"><span lang="en">Contact</span><span lang="hi">संपर्क</span></a>
                      <div class="mobile-lang-switch">
                         <button id="mobile-lang-toggle-btn">
@@ -272,8 +289,8 @@
         <!-- Section 1: Home/Banner -->
         <section id="home">
             <div class="wrapper">
-                <h1 lang="en">Avinash's Bihar Revival Vision</h1>
-                <h1 lang="hi">अविनाश:: बिहार पुनर्निर्माण विज़न</h1>
+                <h1 lang="en">Avinash Jha: Vision for Bihar's Revival</h1>
+                <h1 lang="hi">अविनाश झा: बिहार पुनर्निर्माण की दृष्टि</h1>
                 <p lang="en" class="subtitle">A New Dawn for Bihar: Development through Data, Technology, and Collective Resolve. Exploring solutions for floods, migration, unemployment, and charting a course towards a prosperous future.</p>
                 <p lang="hi" class="subtitle">बिहार के लिए एक नया सवेरा: डेटा, प्रौद्योगिकी और सामूहिक संकल्प के माध्यम से विकास। बाढ़, पलायन, बेरोजगारी के समाधान तलाशना और समृद्ध भविष्य की ओर अग्रसर होना।</p>
                 <a href="#vision" class="cta-button" lang="en">Explore the Roadmap</a>
@@ -293,7 +310,7 @@
                         <div lang="en">
                              <p><b>Avinash Ranjan Jha</b> is a dynamic and educated young politician, thinker, and social activist deeply committed to the regeneration of his home state, Bihar, and the broader Ganga-Yamuna region.</p>
                              <h3 lang="en">Background & Journey:</h3>
-                             <p lang="en">Born in Prayagraj (UP) and brought up in Bihar, he holds an MBA and tech certifications (MCSE, CCNA). After a successful corporate career (2001-08), the 2008 Kosi flood tragedy spurred him to dedicate his life to public service. He founded the <b>"Bihar Revival Forum"</b> advocating solutions like the Adbhut Samriddhi Canal.</p>
+                             <p lang="en">Born in Prayagraj (UP) and brought up in Bihar, he holds an MBA and tech certifications (MCSE, CCNA). After a successful corporate career (2001-08), the 2008 Kosi flood tragedy spurred him to dedicate his life to public service. He founded the <b>"Bihar Revival Forum"</b> ([revive-bihar.blogspot.com](https://revive-bihar.blogspot.com/)) advocating solutions like the Adbhut Samriddhi Canal.</p>
                              <h3 lang="en">Political & Social Work:</h3>
                              <p lang="en">With nearly three decades in politics (since 1995), associated with INC and RJD (serving as State Gen. Sec.), he possesses extensive grassroots experience. His focus is on <b>"Development through data and technology-based politics,"</b> aiming for a holistic revival of Bihar.</p>
                              <h3 lang="en">Vision for Bihar:</h3>
@@ -303,7 +320,7 @@
                         <div lang="hi">
                              <p><b>अविनाश रंजन झा</b> बिहार और व्यापक गंगा-यमुना क्षेत्र के पुनर्निर्माण के लिए गहराई से प्रतिबद्ध एक गतिशील, शिक्षित युवा राजनेता, विचारक और सामाजिक कार्यकर्ता हैं।</p>
                             <h3 lang="hi">पृष्ठभूमि और यात्रा:</h3>
-                             <p lang="hi">प्रयागराज (यूपी) में जन्मे और बिहार में पले-बढ़े, उनके पास एमबीए और तकनीकी प्रमाणपत्र (एमएससीई, सीसीएनए) हैं। एक सफल कॉर्पोरेट करियर (2001-08) के बाद, 2008 की कोसी बाढ़ त्रासदी ने उन्हें सार्वजनिक सेवा के लिए प्रेरित किया। उन्होंने <b>"बिहार रिवाइवल फोरम"</b> की स्थापना की, जो अद्भुत समृद्धि नहर जैसे समाधानों की वकालत करता है।</p>
+                             <p lang="hi">प्रयागराज (यूपी) में जन्मे और बिहार में पले-बढ़े, उनके पास एमबीए और तकनीकी प्रमाणपत्र (एमएससीई, सीसीएनए) हैं। एक सफल कॉर्पोरेट करियर (2001-08) के बाद, 2008 की कोसी बाढ़ त्रासदी ने उन्हें सार्वजनिक सेवा के लिए प्रेरित किया। उन्होंने <b>"बिहार रिवाइवल फोरम"</b> ([revive-bihar.blogspot.com](https://revive-bihar.blogspot.com/)) की स्थापना की, जो अद्भुत समृद्धि नहर जैसे समाधानों की वकालत करता है।</p>
                             <h3 lang="hi">राजनीतिक और सामाजिक कार्य:</h3>
                              <p lang="hi">लगभग तीन दशकों की राजनीतिक भागीदारी (1995 से) के साथ, INC और RJD (राज्य महासचिव के रूप में कार्यरत) से जुड़े, उनके पास व्यापक जमीनी अनुभव है। उनका ध्यान <b>"डेटा और प्रौद्योगिकी आधारित राजनीति के माध्यम से विकास"</b> पर है, जिसका लक्ष्य बिहार का समग्र पुनर्निर्माण करना है।</p>
                             <h3 lang="hi">बिहार के लिए दृष्टि:</h3>
@@ -331,7 +348,7 @@
                                  <li><b>The Panchasutri Solution:</b> Canal, SEZs, Pokhar, IT City, Janaki Circuit.</li>
                                  <li><b>Implementation & Vision:</b> Sustainable Energy, Good Governance, Digital Leap, Economic Diversification, Investor Outreach, Reforms.</li>
                              </ul>
-                             <p lang="en">Essential reading for policymakers, diaspora, investors, students, and anyone invested in Bihar's future.</p>
+                             <p lang="en">Essential reading for policymakers, diaspora, investors, students, and anyone invested in Bihar's future. It's a call to action.</p>
                              <div class="purchase-buttons" lang="en">
                                  <p><b>Purchase the Book:</b></p>
                                  <a href="https://www.amazon.in/dp/B0F4984SVJ" target="_blank" rel="noopener noreferrer" class="amazon">Buy on Amazon.in</a>
@@ -347,7 +364,7 @@
                                  <li><b>पंचसूत्री समाधान:</b> नहर, SEZ, पोखर, आईटी सिटी, जानकी सर्किट।</li>
                                  <li><b>कार्यान्वयन और दृष्टि:</b> सतत ऊर्जा, सुशासन, डिजिटल छलांग, आर्थिक विविधीकरण, निवेशक आउटरीच, सुधार।</li>
                              </ul>
-                             <p lang="hi">नीति निर्माताओं, प्रवासी भारतीयों, निवेशकों, छात्रों और बिहार के भविष्य में रुचि रखने वाले किसी भी व्यक्ति के लिए आवश्यक पठन।</p>
+                             <p lang="hi">नीति निर्माताओं, प्रवासी भारतीयों, निवेशकों, छात्रों और बिहार के भविष्य में रुचि रखने वाले किसी भी व्यक्ति के लिए आवश्यक पठन। यह कार्रवाई का आह्वान है।</p>
                               <div class="purchase-buttons" lang="hi">
                                  <p lang="hi"><b>पुस्तक खरीदें:</b></p>
                                  <a href="https://www.amazon.in/dp/B0F4984SVJ" target="_blank" rel="noopener noreferrer" class="amazon">Amazon.in पर खरीदें</a>
@@ -381,7 +398,7 @@
                     <ul lang="en">
                         <li><b>Sustainable Energy & Environment:</b> Solar mission, renewables, water harvesting.</li>
                         <li><b>Good Governance:</b> Transparency, tech, anti-corruption.</li>
-                        <li><b>Digital Leap (Edu & Health):</b> Modern universities, Digital Learning Platform, Telemedicine.</li>
+                        <li><b>Digital Leap (Edu & Health):</b> Modern universities, Digital Learning, Telemedicine.</li>
                         <li><b>Economic Diversification & Global Linkages:</b> Farm-to-Kitchen, E-commerce, Twin Cities, Agri-Exports, Investor Outreach.</li>
                         <li><b>Addressing Systemic Issues:</b> Electoral integrity, regional dialogue.</li>
                     </ul>
@@ -406,7 +423,7 @@
                     <ul lang="hi">
                         <li><b>सतत ऊर्जा और पर्यावरण:</b> सौर मिशन, नवीकरणीय ऊर्जा, वर्षा जल संचयन।</li>
                         <li><b>सुशासन:</b> पारदर्शिता, तकनीक, भ्रष्टाचार विरोधी उपाय।</li>
-                        <li><b>डिजिटल छलांग (शिक्षा और स्वास्थ्य):</b> आधुनिकीकृत विश्वविद्यालय, डिजिटल लर्निंग प्लेटफॉर्म, टेलीमेडिसिन।</li>
+                        <li><b>डिजिटल छलांग (शिक्षा और स्वास्थ्य):</b> आधुनिकीकृत विश्वविद्यालय, डिजिटल लर्निंग, टेलीमेडिसिन।</li>
                         <li><b>आर्थिक विविधीकरण और वैश्विक जुड़ाव:</b> 'फार्म-टू-किचन', ई-कॉमर्स, 'ट्विन सिटीज', कृषि-निर्यात, निवेशक आउटरीच।</li>
                         <li><b>प्रणालीगत मुद्दों का समाधान:</b> चुनावी अखंडता, क्षेत्रीय संवाद।</li>
                     </ul>
@@ -501,160 +518,162 @@
 
     <!-- Language Switcher and Mobile Nav JS -->
     <script>
-        const langToggleButton = document.getElementById('lang-toggle-btn');
-        const mobileLangToggleButton = document.getElementById('mobile-lang-toggle-btn');
-        const htmlEl = document.documentElement;
-        const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
-        const mobileNavMenu = document.querySelector('.mobile-nav');
+        document.addEventListener('DOMContentLoaded', function() {
+            const langToggleButton = document.getElementById('lang-toggle-btn');
+            const mobileLangToggleButton = document.getElementById('mobile-lang-toggle-btn');
+            const htmlEl = document.documentElement;
+            const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+            const mobileNavMenu = document.querySelector('.mobile-nav');
 
-        // Function to set language and update visibility
-        function setLanguage(lang) {
-            const otherLang = lang === 'en' ? 'hi' : 'en';
-            htmlEl.setAttribute('lang', lang); // Set lang on <html> for CSS font rules
+            // Function to set language and update visibility
+            function setLanguage(lang) {
+                const otherLang = lang === 'en' ? 'hi' : 'en';
+                htmlEl.setAttribute('lang', lang); // Set lang on <html> for CSS font rules
 
-            // Hide inactive language elements
-            document.querySelectorAll(`[lang="${otherLang}"]`).forEach(el => {
-                el.style.display = 'none';
-            });
-            // Show active language elements
-            document.querySelectorAll(`[lang="${lang}"]`).forEach(el => {
-                 // Revert to default display or use appropriate style
-                 // Check if it's naturally an inline element like <span>
-                 if (el.tagName === 'SPAN' || el.tagName === 'A' || el.tagName === 'SMALL' || el.tagName === 'B' || el.tagName === 'STRONG' || el.tagName === 'BUTTON') {
-                     el.style.display = 'inline'; // Or 'inline-block' if needed
-                 } else {
-                     el.style.display = ''; // Let CSS handle block/list-item etc. or default
-                 }
+                // Hide inactive language elements, show active ones
+                // Iterate through all potentially language-specific elements
+                document.querySelectorAll('[lang="en"], [lang="hi"]').forEach(el => {
+                    if (el.getAttribute('lang') === lang) {
+                        // Make element visible by removing display: none if set by JS
+                        if (el.style.display === 'none') {
+                            el.style.display = ''; // Revert to default CSS display
+                        }
+                    } else {
+                        // Hide inactive element
+                        el.style.display = 'none';
+                    }
+                });
 
-                 // Special case for buttons inside purchase buttons div
-                  if(el.tagName === 'A' && el.closest('.purchase-buttons')) {
-                      el.style.display = 'inline-block';
-                  }
-                   // Special case for paragraphs inside purchase buttons div
-                   if(el.tagName === 'P' && el.closest('.purchase-buttons')) {
-                      el.style.display = 'block';
-                  }
-
-            });
-
-            localStorage.setItem('preferredLanguage', lang);
-            updateActiveNavLinks(window.location.hash);
-        }
-
-        // Toggle language function
-        function toggleLanguage() {
-             const currentLang = htmlEl.getAttribute('lang') || 'en';
-             const newLang = currentLang === 'en' ? 'hi' : 'en';
-             setLanguage(newLang);
-        }
-
-        // Add listeners to both buttons
-        if (langToggleButton) {
-             langToggleButton.addEventListener('click', toggleLanguage);
-        }
-         if (mobileLangToggleButton) {
-             mobileLangToggleButton.addEventListener('click', () => {
-                 toggleLanguage();
-                 closeMobileNav();
-             });
-         }
-
-        // Initial language setup on load
-        const savedLang = localStorage.getItem('preferredLanguage');
-        // Set initial lang on html BEFORE running setLanguage to avoid FOUC
-        htmlEl.setAttribute('lang', savedLang || 'en');
-        setLanguage(savedLang || 'en');
-
-
-        // Mobile Navigation Toggle Logic
-         if (mobileNavToggle && mobileNavMenu) {
-             mobileNavToggle.addEventListener('click', (event) => {
-                 event.stopPropagation();
-                 const isActive = mobileNavMenu.style.display === 'block';
-                 mobileNavMenu.style.display = isActive ? 'none' : 'block';
-             });
-         }
-
-        // Function to close mobile nav
-        function closeMobileNav() {
-             if (mobileNavMenu) mobileNavMenu.style.display = 'none';
-        }
-
-         // Close mobile nav when clicking outside
-         document.addEventListener('click', (event) => {
-             if (mobileNavMenu && mobileNavMenu.style.display === 'block' &&
-                 !mobileNavMenu.contains(event.target) &&
-                 mobileNavToggle && !mobileNavToggle.contains(event.target)) {
-                 closeMobileNav();
-             }
-         });
-
-         // Close mobile nav when clicking a link inside it
-          const mobileNavLinks = document.querySelectorAll('.mobile-nav a.page-link');
-             mobileNavLinks.forEach(link => {
-                 link.addEventListener('click', () => {
-                     setTimeout(closeMobileNav, 150);
-                 });
-             });
-
-
-        // Active Nav Link Highlighting on Scroll / Click
-        const sections = document.querySelectorAll('section');
-        const navLinksDesktop = document.querySelectorAll('.desktop-nav .page-link');
-        const navLinksMobileAll = document.querySelectorAll('.mobile-nav .page-link');
-
-        function updateActiveNavLinks(targetId) {
-            const currentHash = targetId || '#home';
-            navLinksDesktop.forEach(link => {
-                 link.classList.toggle('active', link.getAttribute('href') === currentHash);
-            });
-             navLinksMobileAll.forEach(link => {
-                link.classList.toggle('active', link.getAttribute('href') === currentHash);
-             });
-        }
-
-        // Update active link on manual scroll - Intersection Observer
-        const observerOptions = {
-          root: null,
-          rootMargin: `-${(parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height'), 10) || 70) + 10}px 0px -60% 0px`,
-          threshold: 0
-        };
-
-        const observerCallback = (entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              updateActiveNavLinks(`#${entry.target.id}`);
+                localStorage.setItem('preferredLanguage', lang);
+                updateActiveNavLinks(window.location.hash);
             }
-          });
-        };
 
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
-        sections.forEach(section => observer.observe(section));
+            // Toggle language function
+            function toggleLanguage() {
+                 const currentLang = htmlEl.getAttribute('lang') || 'en';
+                 const newLang = currentLang === 'en' ? 'hi' : 'en';
+                 setLanguage(newLang);
+            }
 
+            // Add listeners to both language toggle buttons
+            if (langToggleButton) {
+                 langToggleButton.addEventListener('click', toggleLanguage);
+            }
+             if (mobileLangToggleButton) {
+                 mobileLangToggleButton.addEventListener('click', () => {
+                     toggleLanguage();
+                     closeMobileNav(); // Close nav after language change
+                 });
+             }
 
-         // Update active link on hash change (click)
-         window.addEventListener('hashchange', () => {
-             updateActiveNavLinks(window.location.hash || '#home');
-         });
-
-         // Initial check on load
-          let initialHash = '#home';
-          for (let section of sections) {
-              const rect = section.getBoundingClientRect();
-               const headerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height'), 10) || 70;
-              if (rect.top >= headerHeight && rect.top < window.innerHeight / 2) {
-                  initialHash = '#' + section.id;
-                  break;
-              }
-          }
-         // Ensure initial hash is set correctly before updating links
-         if (!window.location.hash) {
-             // Optionally push #home to history without scrolling
-             // history.pushState(null, null, '#home');
-         }
-          updateActiveNavLinks(window.location.hash || initialHash);
+            // Initial language setup on load
+            const savedLang = localStorage.getItem('preferredLanguage');
+            const initialLang = savedLang || 'en';
+            // Set initial lang on html BEFORE running setLanguage
+            htmlEl.setAttribute('lang', initialLang);
+            // Apply the initial language visibility settings once the DOM is ready
+            setLanguage(initialLang);
 
 
+            // Mobile Navigation Toggle Logic
+             if (mobileNavToggle && mobileNavMenu) {
+                 mobileNavToggle.addEventListener('click', (event) => {
+                     event.stopPropagation(); // Prevent document click listener when clicking the button
+                     const isDisplayed = mobileNavMenu.style.display === 'block';
+                     mobileNavMenu.style.display = isDisplayed ? 'none' : 'block';
+                      // Update aria-expanded attribute for accessibility
+                      mobileNavToggle.setAttribute('aria-expanded', !isDisplayed);
+                 });
+             }
+
+            // Function to close mobile nav
+            function closeMobileNav() {
+                 if (mobileNavMenu) mobileNavMenu.style.display = 'none';
+                 if (mobileNavToggle) mobileNavToggle.setAttribute('aria-expanded', 'false');
+            }
+
+             // Close mobile nav when clicking outside
+             document.addEventListener('click', (event) => {
+                 if (mobileNavMenu && mobileNavMenu.style.display === 'block' &&
+                     !mobileNavMenu.contains(event.target) &&
+                     !mobileNavToggle.contains(event.target)) {
+                     closeMobileNav();
+                 }
+             });
+
+             // Close mobile nav when clicking a link inside it
+              const mobileNavLinks = document.querySelectorAll('.mobile-nav a.page-link');
+                 mobileNavLinks.forEach(link => {
+                     link.addEventListener('click', () => {
+                         // Slight delay to allow navigation before closing, especially for hash links
+                         setTimeout(closeMobileNav, 150);
+                     });
+                 });
+
+
+            // Active Nav Link Highlighting on Scroll / Click
+            const sections = document.querySelectorAll('section');
+            const navLinksDesktop = document.querySelectorAll('.desktop-nav .page-link');
+            const navLinksMobileAll = document.querySelectorAll('.mobile-nav .page-link');
+            const headerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height'), 10) || 70;
+
+
+            function updateActiveNavLinks(targetId) {
+                const currentHash = targetId || '#home';
+                navLinksDesktop.forEach(link => {
+                     link.classList.toggle('active', link.getAttribute('href') === currentHash);
+                });
+                 navLinksMobileAll.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === currentHash);
+                 });
+            }
+
+            // Update active link on manual scroll - Intersection Observer
+            const observerOptions = {
+              root: null,
+              rootMargin: `-${headerHeight + 10}px 0px -75% 0px`, // Adjust rootMargin if needed
+              threshold: 0
+            };
+
+            const observerCallback = (entries) => {
+              entries.forEach(entry => {
+                // Check if the element is intersecting and is somewhat below the header
+                if (entry.isIntersecting) {
+                     const targetId = `#${entry.target.id}`;
+                     updateActiveNavLinks(targetId);
+                }
+              });
+            };
+
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            sections.forEach(section => observer.observe(section));
+
+
+             // Update active link on hash change (click)
+             window.addEventListener('hashchange', () => {
+                 updateActiveNavLinks(window.location.hash || '#home');
+             });
+
+             // Initial check on load
+             // Delay slightly to ensure layout is stable
+             setTimeout(() => {
+                  let initialHash = '#home';
+                  if(window.location.hash) {
+                      initialHash = window.location.hash;
+                  } else {
+                     // Check which section is initially visible
+                     for (let section of sections) {
+                        const rect = section.getBoundingClientRect();
+                        if (rect.top >= 0 && rect.top < window.innerHeight / 3) { // Check if top part of section is visible
+                            initialHash = '#' + section.id;
+                            break;
+                         }
+                     }
+                  }
+                 updateActiveNavLinks(initialHash);
+             }, 100);
+
+        }); // End DOMContentLoaded
     </script>
 
 </body>
